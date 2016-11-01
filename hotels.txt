@@ -28,3 +28,51 @@ https://www.hotels.ru/rus/hotels/russia/saint_petersburg/sokos_olympic/reviews/?
 
 
 
+2. booking.com
+Плюсы и минусы: такие же, как у hotels.ru
+
+Пример URL с отзывами:
+http://www.booking.com/reviews/xc/hotel/sevastopol-39-skaya-usad-39-ba.ru.html
+
+Пример разметки отзыва:
+<div class="review_item_review">
+<div class="review_item_review_container lang_ltr">
+<div class="review_item_review_header">
+<div class="
+review_item_header_score_container
+">
+<div class="review_item_review_score jq_tooltip" title="
+Очень хорошо
+">
+8,3
+<span itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating">
+<meta itemprop="ratingValue" content="8.3">
+<meta itemprop="bestRating" content="10">
+</span>
+</div>
+</div>
+<div class="review_item_header_content_container">
+<a href="/reviews/xc/hotel/sevastopol-39-skaya-usad-39-ba/review/1e32ab3984d00984.ru.html?label=gen173nr-1FCA0ogAJCHnNldmFzdG9wb2wtMzktc2theWEtdXNhZC0zOS1iYUghYgVub3JlZmjCAYgBAZgBIbgBCsgBDNgBAegBAfgBAqgCAw;sid=b3fdd84b9dc73c4d62e4dada3b82b42e" class="review_item_header_content">
+«<span itemprop="name">Комфортный отдых</span>»
+</a>
+</div>
+</div>
+<ul class="review_item_info_tags">
+<li class="review_info_tag ">
+<span class="bullet">•</span> Отдых
+</li>
+<li class="review_info_tag ">
+<span class="bullet">•</span> Семья
+</li>
+<li class="review_info_tag ">
+<span class="bullet">•</span> Двухместный номер Делюкс с 2 отдельными кроватями и видом на море
+</li>
+<li class="review_info_tag ">
+<span class="bullet">•</span> Проживание длительностью в 7 ночей
+</li>
+</ul>
+<div class="review_item_review_content">
+<p class="review_neg"><i class="review_item_icon">눉</i><span itemprop="reviewBody">Далеко от хороших пляжей и от центра города (но это в целом проблема всех отелей на северной стороне Севастополя). Отель подходит тем, кто путешествует на машине. Если хотите потанцевать допоздна в барах в центре города, будьте готовы возвращаться минут 40 на такси. Другого пути нет. Катера ходят до 23-30.</span></p><p class="review_pos"><i class="review_item_icon">눇</i><span itemprop="reviewBody">Современные новые номера, комнаты достаточно большие, ванная так же  просторная с новыми душевыми кабинами, ремонт хороший в приятной цветовой гамме, большие балконы. Есть открытый бассейн, который регулярно чистят. В целом находиться в отеле приятно и уютно. Персонал старается сделать отдых максимально комфортным.</span></p>
+</div>
+</div>
+</div>
