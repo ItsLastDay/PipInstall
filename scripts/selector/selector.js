@@ -26,38 +26,20 @@ function run_comparison() {
 	var pro = document.getElementById("pros");
 	var contra = document.getElementById("cons");
 	var text = document.getElementById("comments");
+	var grade = document.getElementById("grade");
+	var author = document.getElementById("author");
 
 
 
 	var iterator = 0;
-	pro.innerHTML = data[0].pro;
-	contra.innerHTML = data[0].contra;
-	text.innerHTML = data[0].text;
-
-
+	renderValues();
 
 	truthful.onclick = function(){
-		truthful_array.push(data[iterator]);
-		++iterator;
-		if (iterator == data.length) {
-			alert("array is empty!");
-			return;
-		}
-		pro.innerHTML = data[iterator].pro;
-		contra.innerHTML = data[iterator].contra;
-		text.innerHTML = data[iterator].text;
+		add_to_array(truthful_array);
 	};
 
 	not_truthful.onclick = function() {
-		not_truthful_array.push(data[iterator]);
-		++iterator;
-		if (iterator == data.length) {
-			alert("array is empty!");
-			return;
-		}
-		pro.innerHTML = data[iterator].pro;
-		contra.innerHTML = data[iterator].contra;
-		text.innerHTML = data[iterator].text;
+		add_to_array(not_truthful_array);
 	};
 
 	var saveButton = document.getElementById("save");
@@ -74,6 +56,30 @@ function run_comparison() {
 		saveAs(blob,file_name + "_not_truthful.txt" )
 
 	};
+
+
+	function add_to_array(array) {
+
+		array.push(data[iterator]);
+
+		while (data[++iterator] && data[iterator].grade < 1);
+
+		if (iterator == data.length) {
+			alert("array is empty!");
+			return;
+		}
+
+		renderValues();
+	}
+
+
+	function renderValues() {
+		pro.innerHTML = data[iterator].pro;
+		contra.innerHTML = data[iterator].contra;
+		text.innerHTML = data[iterator].text;
+		grade.innerHTML = data[iterator].grade + 3; // -2 .. 2
+		author.innerHTML = data[iterator].author;
+	}
 }
 
 
