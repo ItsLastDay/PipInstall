@@ -1,0 +1,30 @@
+1. Hotels.ru
++ Есть оценки к отзывам => автоматически берём положительные
++ Можно смотреть список отелей в определённом месте :
+https://www.hotels.ru/rus/hotels/russia/sochi/hotels_list.htm
+- Вряд ли много проплаченных отзывов есть
+
+Где искать непроплаченные:
+да где угодно - сайт с репутацией. По идее, большинство нормальных.
+
+Где искать проплаченные:
+возможно, всякие маленькие хостелы в Сочи\Анапе\... имеют
+проплаченные отзывы. Беглый взгляд показал, что там просто
+мало отзывов.
+
+Пример URL с отзывами:
+https://www.hotels.ru/rus/hotels/russia/saint_petersburg/sokos_olympic/reviews/?p=2&
+
+Пример разметки отзыва:
+<tr class="review" data-review-type="6"><td class="info item"><p class="name">Andrey</p><p class="review-type">Молодежные пары</p><p class="place"><span class="flag flag-ru">&nbsp;</span> Moscow, Россия</p><p class="date">11 Май 2012</p></td><td class="texts"><div class="texts-inner"><div class="texts-block"><div><div class="good-text">хорошие номера- мягкие кровати, все было хорошо, отличный отель.</div><div class="bad-text">не работала сауна</div></div></div><div class="score rating"><div class="grade"><div>оценка</div><span class="value">9.2</span></div><div class="value-word">Великолепно</div></div><noindex>     <div class="usefulness " data-essence="{&quot;ID_essence&quot;:&quot;861&quot;,&quot;essence_type&quot;:27}">
+            Вы считаете этот отзыв полезным? 
+            
+            <a href="#" data-is_positive="1" class="yes try" data-element="usefulness-yes" data-action="update-usefulness">Да</a> 
+            <span class="positive-amount">0</span>
+            
+                         
+        </div>
+        <a href="/reviews/861#comments" class="gray-button white try" rel="nofollow" data-element="comment-button" data-action="one-review-page">Комментарии</a></noindex><div class="arrow"></div></div></td></tr>
+
+
+
