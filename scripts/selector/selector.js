@@ -28,7 +28,7 @@ function run_comparison() {
 	var text = document.getElementById("comments");
 	var grade = document.getElementById("grade");
 	var author = document.getElementById("author");
-
+	var counter = document.getElementById("counter");
 
 
 	var iterator = 0;
@@ -74,6 +74,9 @@ function run_comparison() {
 
 
 	function renderValues() {
+
+
+		counter.innerHTML = iterator + "/" + data.length;
 		pro.innerHTML = data[iterator].pro;
 		contra.innerHTML = data[iterator].contra;
 		text.innerHTML = data[iterator].text;
