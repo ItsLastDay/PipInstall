@@ -64,7 +64,7 @@ function run_comparison() {
 
 		while (data[++iterator] && data[iterator].grade < 1);
 
-		if (iterator == data.length) {
+		if (iterator >= data.length) {
 			alert("array is empty!");
 			return;
 		}
