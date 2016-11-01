@@ -197,3 +197,29 @@ https://www.tripadvisor.ru/Hotel_Review-g1956128-d2714825-Reviews-Ellas_Hotel-Ad
 </div>
 </div> </div> </div>
 </div>
+
+
+4. tophotels.ru
+
+На вид отзывы здесь более противоречивые, чем на предыдущих
+сайтах.
+Очень удобно должно быть парсить отзывы. 
+
+Пример URL:
+http://www.tophotels.ru/main/hotel/al35383/reviews
+
+
+5. otzyv.ru/hotels
+
+Тут уже есть подозрительные отзывы, пример:
+http://www.otzyv.ru/read.php?id=113462
+
+Можно смотреть, например, на отели Крыма и выбирать те, у кого мало отзывов:
+http://www.otzyv.ru/hotels/russia/?city=1944
+
+
+6. Разные сайты-сборники отзывов, а также подозрительные отызвы из них:
+mahnem.ru: http://www.mahnem.ru/story5149.html
+turpravda.com http://www.turpravda.com/ru/sochi/Liana-h35160.html
+ayda.ru http://www.ayda.ru/hotels/2208/ отзыв: 06.05.2013   Замечательно
+http://tonkosti.ru/%D0%9E%D1%82%D0%B5%D0%BB%D0%B8_%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D0%B8 С ходу найти подозрительные не удалось.
