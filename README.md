@@ -13,5 +13,5 @@ In alphabetical order:
  - we chose a [review domain](https://github.com/ItsLastDay/PipInstall/wiki/Choosing-reviews-domain) - Internet Markets;
  - we gathered dataset from Yandex.Market;
  - we evaluated our dataset (1 assessor per 1 review) and split it into paid and good categories;
- - we brainstormed machine learning features that we'll use + did some research of existing work.  
+ - we brainstormed machine learning features that we'll use + did some [research](https://github.com/ItsLastDay/PipInstall/wiki/Research-papers) of existing work.  
 Overall, our team gave solid performance on day 1.
