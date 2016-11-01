@@ -22,5 +22,5 @@ if __name__ == '__main__':
         num_negative_reviews = len([x['grade'] for x in review_data \
                 if x['grade'] < 1]) # Y.market grades are -2..2
 
-        print('Number of entries: {}'.format(num_of_entries))
-        print('Number of negative reviews: {}'.format(num_negative_reviews))
+        print(' - Number of entries: {}'.format(num_of_entries))
+        print(' - Number of negative reviews: {}'.format(num_negative_reviews))
