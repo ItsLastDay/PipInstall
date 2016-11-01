@@ -1,9 +1,10 @@
 
 var data = [];
-
+var file_name = "";
 var input = document.getElementById("fileinput");
 input.onchange = function() {
 	var file = event.target.files[0];
+	file_name = file.name;
 	var fr = new FileReader();
 	fr.onload = function (e) {
 		var parsed = JSON.parse(e.target.result);
@@ -22,16 +23,16 @@ function run_comparison() {
 	var truthful = document.getElementById("truthful");
 	var not_truthful = document.getElementById("not_truthful");
 
-	var pros = document.getElementById("pros");
-	var cons = document.getElementById("cons");
-	var comments = document.getElementById("comments");
+	var pro = document.getElementById("pros");
+	var contra = document.getElementById("cons");
+	var text = document.getElementById("comments");
 
 
 
 	var iterator = 0;
-	pros.innerHTML = data[0].pros;
-	cons.innerHTML = data[0].cons;
-	comments.innerHTML = data[0].comments;
+	pro.innerHTML = data[0].pro;
+	contra.innerHTML = data[0].contra;
+	text.innerHTML = data[0].text;
 
 
 
@@ -42,9 +43,9 @@ function run_comparison() {
 			alert("array is empty!");
 			return;
 		}
-		pros.innerHTML = data[iterator].pros;
-		cons.innerHTML = data[iterator].cons;
-		comments.innerHTML = data[iterator].comments;
+		pro.innerHTML = data[iterator].pro;
+		contra.innerHTML = data[iterator].contra;
+		text.innerHTML = data[iterator].text;
 	};
 
 	not_truthful.onclick = function() {
@@ -54,9 +55,9 @@ function run_comparison() {
 			alert("array is empty!");
 			return;
 		}
-		pros.innerHTML = data[iterator].pros;
-		cons.innerHTML = data[iterator].cons;
-		comments.innerHTML = data[iterator].comments;
+		pro.innerHTML = data[iterator].pro;
+		contra.innerHTML = data[iterator].contra;
+		text.innerHTML = data[iterator].text;
 	};
 
 	var saveButton = document.getElementById("save");
@@ -64,13 +65,13 @@ function run_comparison() {
 		var json = JSON.stringify(truthful_array),
 			blob = new Blob([json], {type: "text/plain;charset=utf-8"});
 
-		saveAs(blob, "truthful.txt" );
+		saveAs(blob,file_name + "_truthful.txt" );
 
 
 		json = JSON.stringify(not_truthful_array);
 		blob = new Blob([json], {type: "text/plain;charset=utf-8"});
 
-		saveAs(blob, "not_truthful.txt" )
+		saveAs(blob,file_name + "_not_truthful.txt" )
 
 	};
 }
