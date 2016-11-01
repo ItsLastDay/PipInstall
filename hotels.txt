@@ -76,3 +76,124 @@ review_item_header_score_container
 </div>
 </div>
 </div>
+
+
+3. tripadvisor.ru
+На сайте не только отели. Люди выкладывают фотографии своего отдыха.
+
+ А так - похож на booking и hotels
+
+Пример URL с отзывами:
+https://www.tripadvisor.ru/Hotel_Review-g1956128-d2714825-Reviews-Ellas_Hotel-Adler_Adler_District_Sochi_Greater_Sochi_Krasnodar_Krai_Southern_District.html
+
+Пример разметки отзыва:
+<div id="review_396475666" class="reviewSelector  ">
+<div class="review basic_review inlineReviewUpdate provider0">
+<div class="col1of2">
+<div class="member_info">
+<div id="UID_A5F0A69F6BB70915F4FAB6415E465362-SRC_396475666" class="memberOverlayLink" onmouseover="requireCallIfReady('members/memberOverlay', 'initMemberOverlay', event, this, this.id, 'Reviews', 'user_name_photo');" data-anchorwidth="90">
+<div class="avatar profile_A5F0A69F6BB70915F4FAB6415E465362 ">
+<a onclick="">
+<img width="74" id="lazyload_2137698911_29" class="avatar potentialFacebookAvatar avatarGUID:A5F0A69F6BB70915F4FAB6415E465362" height="74" src="https://media-cdn.tripadvisor.com/media/photo-l/01/2a/fd/92/avatar.jpg">
+</a>
+</div>
+<div class="username mo">
+<span class="expand_inline scrname mbrName_A5F0A69F6BB70915F4FAB6415E465362" onclick="ta.trackEventOnPage('Reviews', 'show_reviewer_info_window', 'user_name_name_click')">Roman P</span>
+</div>
+</div>
+<div class="location">
+</div>
+</div>
+<div class="memberBadging g10n">
+<div id="UID_A5F0A69F6BB70915F4FAB6415E465362-CONT" class="no_cpu" onclick="ta.util.cookie.setPIDCookie('15984'); requireCallIfReady('members/memberOverlay', 'initMemberOverlay', event, this, this.id, 'Reviews', 'review_count');" data-anchorwidth="90">
+<div class="levelBadge badge lvl_01">
+Критик <span><img alt="" width="20" id="lazyload_2137698911_30" class="icon lazy" height="20" src="https://static.tacdn.com/img2/badges/20px/lvl_01.png"></span>-го уровня </div>
+<div class="reviewerBadge badge">
+<img alt="" width="20" id="lazyload_2137698911_31" class="icon lazy" height="20" src="https://static.tacdn.com/img2/badges/20px/rev_01.png">
+<span class="badgeText">1 отзыв</span> </div>
+</div>
+</div>
+</div>
+<div class="col2of2">
+<div class="innerBubble">
+<div class="wrap">
+<div class="quote">
+<a href="/ShowUserReviews-g1956128-d2714825-r396475666-Ellas_Hotel-Adler_Adler_District_Sochi_Greater_Sochi_Krasnodar_Krai_Southern_Di.html#CHECK_RATES_CONT" onclick="ta.setEvtCookie('Reviews','title','',0,this.href); ta.util.cookie.setPIDCookie('2246');" id="rn396475666">“<span class="noQuotes">Очень чисто и аккуратно</span>”</a>
+</div>
+<div class="rating reviewItemInline">
+<span class="rate sprite-rating_s rating_s"> <img class="sprite-rating_s_fill rating_s_fill s50" width="70" src="https://static.tacdn.com/img2/x.gif" alt="5 из 5 кружков">
+</span>
+<span class="ratingDate">Отзыв написан 25 июля 2016
+</span>
+<a class="viaMobile" href="/apps" target="_blank" onclick="ta.util.cookie.setPIDCookie(24687)">
+<span class="ui_icon mobile-phone"></span>
+через мобильное устройство
+</a>
+</div>
+<div class="entry">
+<p class="partial_entry">
+Хороший отель для тех кто любит что бы все было новым и чистым. Хозяева очень приветливые и гостеприимные люди. Внизу есть столовая. Цены очень недорогие. Есть телевизор маленький, кондиционер. И еще не ведитесь если приехали на поезде на тех кто там стоит и предлагает отель. Они вас отвезут а себе возьмут не меньше 25 процентов. При чем комиссия всегда будет...
+<span class="partnerRvw">
+<span class="taLnk hvrIE6 tr396475666 moreLink ulBlueLinks" onclick="      ta.util.cookie.setPIDCookie(2247); ta.call('ta.servlet.Reviews.expandReviews', {type: 'dummy'}, ta.id('review_396475666'), 'review_396475666', '1', 2247);
+  ">
+Ещё&nbsp; </span>
+<span class="ui_icon caret-down"></span>
+</span>
+</p>
+</div>
+<div class="media  thumbCols3">
+<div class="thumbnails">
+<div class="photosInline">
+<ul>
+<li class=" ThumbNailContainer">
+<span class="u_/LocationPhotoDirectLink-g1956128-d2714825-i204940496-r396475666-Ellas_Hotel-Adler_Adler_District_Sochi_Greater_Sochi_Krasnod.html#204940496 fkASDF" onclick="ta.trackEventOnPage('Reviews','user_photo','image');ta.util.cookie.setPIDCookie(5042); ta.media.viewer.load({detail:2714825, geo:1956128, filter:2, imageId:204940496}); return false;">
+<img src="https://media-cdn.tripadvisor.com/media/photo-t/0c/37/24/d0/caption.jpg" alt="" width="50" id="lazyload_2137698911_32" class="reviewInlineImage" height="50"> </span>
+</li>
+<li class=" ThumbNailContainer">
+<span class="u_/LocationPhotoDirectLink-g1956128-d2714825-i204940497-r396475666-Ellas_Hotel-Adler_Adler_District_Sochi_Greater_Sochi_Krasnod.html#204940497 fkASDF" onclick="ta.trackEventOnPage('Reviews','user_photo','image');ta.util.cookie.setPIDCookie(5042); ta.media.viewer.load({detail:2714825, geo:1956128, filter:2, imageId:204940497}); return false;">
+<img src="https://media-cdn.tripadvisor.com/media/photo-t/0c/37/24/d1/caption.jpg" alt="" width="50" id="lazyload_2137698911_33" class="reviewInlineImage" height="50"> </span>
+</li>
+<li class=" ThumbNailContainer">
+<span class="u_/LocationPhotoDirectLink-g1956128-d2714825-i204940498-r396475666-Ellas_Hotel-Adler_Adler_District_Sochi_Greater_Sochi_Krasnod.html#204940498 fkASDF" onclick="ta.trackEventOnPage('Reviews','user_photo','image');ta.util.cookie.setPIDCookie(5042); ta.media.viewer.load({detail:2714825, geo:1956128, filter:2, imageId:204940498}); return false;">
+<img src="https://media-cdn.tripadvisor.com/media/photo-t/0c/37/24/d2/caption.jpg" alt="" width="50" id="lazyload_2137698911_34" class="reviewInlineImage" height="50"> </span>
+</li>
+<li class=" ThumbNailContainer">
+<span class="u_/LocationPhotoDirectLink-g1956128-d2714825-i204940499-r396475666-Ellas_Hotel-Adler_Adler_District_Sochi_Greater_Sochi_Krasnod.html#204940499 fkASDF" onclick="ta.trackEventOnPage('Reviews','user_photo','image');ta.util.cookie.setPIDCookie(5042); ta.media.viewer.load({detail:2714825, geo:1956128, filter:2, imageId:204940499}); return false;">
+<img src="https://media-cdn.tripadvisor.com/media/photo-t/0c/37/24/d3/caption.jpg" alt="" width="50" id="lazyload_2137698911_35" class="reviewInlineImage" height="50"> </span>
+</li>
+<li class=" ThumbNailContainer">
+<span class="u_/LocationPhotoDirectLink-g1956128-d2714825-i204940500-r396475666-Ellas_Hotel-Adler_Adler_District_Sochi_Greater_Sochi_Krasnod.html#204940500 fkASDF" onclick="ta.trackEventOnPage('Reviews','user_photo','image');ta.util.cookie.setPIDCookie(5042); ta.media.viewer.load({detail:2714825, geo:1956128, filter:2, imageId:204940500}); return false;">
+<img src="https://media-cdn.tripadvisor.com/media/photo-t/0c/37/24/d4/caption.jpg" alt="" width="50" id="lazyload_2137698911_36" class="reviewInlineImage" height="50"> </span>
+</li>
+<li class=" ThumbNailContainer">
+<span class="u_/LocationPhotoDirectLink-g1956128-d2714825-i204940501-r396475666-Ellas_Hotel-Adler_Adler_District_Sochi_Greater_Sochi_Krasnod.html#204940501 fkASDF" onclick="ta.trackEventOnPage('Reviews','user_photo','image');ta.util.cookie.setPIDCookie(5042); ta.media.viewer.load({detail:2714825, geo:1956128, filter:2, imageId:204940501}); return false;">
+<img src="https://media-cdn.tripadvisor.com/media/photo-t/0c/37/24/d5/caption.jpg" alt="" width="50" id="lazyload_2137698911_37" class="reviewInlineImage" height="50"> </span>
+</li>
+<li class=" ThumbNailContainer">
+<span class="u_/LocationPhotoDirectLink-g1956128-d2714825-i204940502-r396475666-Ellas_Hotel-Adler_Adler_District_Sochi_Greater_Sochi_Krasnod.html#204940502 fkASDF" onclick="ta.trackEventOnPage('Reviews','user_photo','image');ta.util.cookie.setPIDCookie(5042); ta.media.viewer.load({detail:2714825, geo:1956128, filter:2, imageId:204940502}); return false;">
+<img src="https://media-cdn.tripadvisor.com/media/photo-t/0c/37/24/d6/caption.jpg" alt="" width="50" id="lazyload_2137698911_38" class="reviewInlineImage" height="50"> </span>
+</li>
+<li class="lastThumb ThumbNailContainer">
+<span class="u_/LocationPhotoDirectLink-g1956128-d2714825-i204940503-r396475666-Ellas_Hotel-Adler_Adler_District_Sochi_Greater_Sochi_Krasnod.html#204940503 fkASDF" onclick="ta.trackEventOnPage('Reviews','user_photo','image');ta.util.cookie.setPIDCookie(5042); ta.media.viewer.load({detail:2714825, geo:1956128, filter:2, imageId:204940503}); return false;">
+<img src="https://media-cdn.tripadvisor.com/media/photo-t/0c/37/24/d7/caption.jpg" alt="" width="50" id="lazyload_2137698911_39" class="reviewInlineImage" height="50"> </span>
+</li>
+</ul>
+</div> </div> </div>
+<div class="wrap">
+<div id="helpfulq396475666_collapsed" class="helpful redesigned white_btn_container ">
+<span class="isHelpful">Полезно?</span> <div class="tgt_helpfulq396475666 rnd_white_thank_btn" onclick="ta.call('ta.servlet.Reviews.helpfulVoteHandlerOb', event, this, 'LeJIVqd4EVIpECri1GII26mbqgqguuuxizSxiEpqgqWQQoqnQQeVsSVuqHyUAo3UXvqHMXkUdvXoqHxfqHzsccJtQQoqnQQqWqHbMcVEQQoqnQQbMcVEQQoqnQQxMStIESnIQQoqnQQhinGSQQoqnQQzzEVJIVEQQoqnQQhinGSQQoqnQQxbEJtCiMJEQQoqnQQxbEJSQQoqnQQhipIGVECQQoqnQQxMStIESnIxiGIac6XoXmqoTpcmA3dko3330tEn1mA3dko3330zH1UAo3UXv0pSM1boqnKb3Aqn377kKAUoqndqnb73dUozsd3om3X0npEEeJIV1K0EJIVqiJcpV1U0Ii9VC1rZlU3Xozxbzsdq8RGvxEwikqIhuSaSzzaXThgCx5qILnakx2GLxbSegx2DoyuqiVXxGbSJxMqn7Ox5VbZxdT3qnXeO77sizzxEguUIkxbnNx2eAfa5nzsbx5oxdDxdwoxXtqQx5xGqnLXJmGVTAVsqQkEm9qnqQJcqiMqQnht3XZfwg9phVOqQg52wRzCqQcbzzGtxGxdqIZ97i3TOyxXotgRlvzCzsvCn'); ta.trackEventOnPage('HELPFUL_VOTE_TEST', 'helpfulvotegiven_v2');" style="font-size: 12px;">
+<img src="https://static.tacdn.com/img2/icons/icon_thumb_white.png" class="helpful_thumbs_up white">
+<img src="https://static.tacdn.com/img2/icons/icon_thumb_green.png" class="helpful_thumbs_up green">
+<span class="helpful_text">Спасибо, Roman P!</span> </div>
+</div>
+<div class="tooltips vertically_centered">
+<div class="wrap reportProblem">
+<span id="ReportIAP_396475666" class="problem collapsed taLnk" onclick="ta.trackEventOnPage('Reviews', 'report_problem', 'click'); ta.call('ta.servlet.Reviews.iapFlyout', event, this, '396475666')" onmouseover="if (!this.getAttribute('data-first')) {ta.trackEventOnPage('Reviews', 'report_problem', 'hover_over_flag'); this.setAttribute('data-first', 1)} uiOverlay(event, this)" data-tooltip="" data-position="above" data-content="Возникли проблемы с этим отзывом?">
+<img width="13" alt="" id="lazyload_2137698911_40" height="14" src="https://static.tacdn.com/img2/icons/gray_flag.png">
+<span class="reportTxt">Сообщить о проблеме</span> </span>
+</div>
+</div>
+</div>
+</div>
+</div> </div> </div>
+</div>
