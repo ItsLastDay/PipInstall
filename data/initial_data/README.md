@@ -1,6 +1,6 @@
 ## Raw data
 
-We gathered reviews about several e-shops from [https://market.yandex.ru/](Yandex.Market). In order to do this, we derived the following criteria:
+We gathered reviews about several e-shops from [Yandex.Market](https://market.yandex.ru/). In order to do this, we derived the following criteria:
   - e-shop is "reliable" when it has about the same count of negative and positive reviews (judging by grade);
   - e-shop is "unreliable" when it has mostly (> 90%) positive reviews + review count is low (< 200).
 We expect reviews for "unreliable" shops to be mostly paid, because real people tend to express more opinions than "excellent".
@@ -25,7 +25,7 @@ Everything else:
  - Cifrovoi.com
  - Apple-Zone
  
-We gather 100 reviews per market using Y.Market API (1200 in total), then shuffle those groups and split them into 4 equal parts (300 reviews per part).
+We gather 100 reviews per market using Y.Market [API](https://tech.yandex.ru/market/monetization/doc/dg/reference/shop-id-opinion-docpage/) (1200 in total), then shuffle those groups and split them into 4 equal parts (300 reviews per part).
  
 ### Statistics
 data.json
