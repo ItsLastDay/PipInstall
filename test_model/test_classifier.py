@@ -39,7 +39,7 @@ def perform_crossval(reviews, labels, clf, metric=lambda x, y: 1,
     '''
     feature_funcs = feature_funcs or []
     features = compute_features(reviews, feature_funcs)
-    dump_name = ''.join(map(lambda f: f.__name__, feature_funcs))
+    dump_name = './computed_features/' + ','.join(map(lambda f: f.__name__, feature_funcs))
     with open(dump_name, 'wb') as dump_file:
         pickle.dump(features, dump_file)
 
