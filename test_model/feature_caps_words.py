@@ -1,5 +1,7 @@
 import re
 
+def json_to_text(json):
+    return json.get('text', '') + '\n' + json.get('pro', '') + '\n' + json.get('contra', '')
 
 def feature_caps_words(reviews_array):
     features = []
@@ -16,11 +18,11 @@ def feature_caps_words(reviews_array):
 
     for review in reviews_array:
         features.append([
-            helper(review['text']) + helper(review['pro']) + helper(review['contra'])
+            helper(json_to_text(review))
         ])
 
     return features
 
 
-# import json
-# print(feature_caps_words([json.loads('{"text":"ХОРОШИЙ ЖОПА ПИЗДА персонал,но КАК-НИКАК ;; ... ЧЕТКО все рассказывают,все понятно,а главное,что лишние вопросы не возникают","grade":2,"delivery":"DELIVERY","id":66186256,"authorInfo":{"grades":1,"uid":431432957},"shop":{"id":76616,"name":"Cifrovoi.com"},"author":"Чадович Андрей","contra":"","comments":[],"agree":0,"date":1477849186000,"shopId":76616,"reject":0,"shopOrderId":"75990","anonymous":false,"visibility":"NAME","region":2,"pro":""}')]))
+import json
+print(feature_caps_words([json.loads('{"text":" персонал, ПРОПА но  ;; ...  все рассказывают,все понятно,а главное,что лишние вопросы не возникают","grade":2,"delivery":"DELIVERY","id":66186256,"authorInfo":{"grades":1,"uid":431432957},"shop":{"id":76616,"name":"Cifrovoi.com"},"author":"Чадович Андрей","comments":[],"agree":0,"date":1477849186000,"shopId":76616,"reject":0,"shopOrderId":"75990","anonymous":false,"visibility":"NAME","region":2,"pro":""}')]))

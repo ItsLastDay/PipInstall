@@ -1,5 +1,7 @@
 import re
 
+def json_to_text(json):
+    return json.get('text', '') + '\n' + json.get('pro', '') + '\n' + json.get('contra', '')
 
 def feature_unigrams_bigrams(reviews_array):
     features = []
@@ -27,11 +29,11 @@ def feature_unigrams_bigrams(reviews_array):
         return grams_vector
 
     for review in reviews_array:
-        data = helper(review['text'] + review['pro'] + review['contra'])
+        data = helper(json_to_text(review))
         features.append(data)
 
     return features
 
 
 # import json
-# print(feature_unigrams_bigrams([json.loads('{"text":"абвгдеёжзийклмнопрстуфхцчшщъыьэюя","grade":2,"delivery":"DELIVERY","id":66186256,"authorInfo":{"grades":1,"uid":431432957},"shop":{"id":76616,"name":"Cifrovoi.com"},"author":"Чадович Андрей","contra":"","comments":[],"agree":0,"date":1477849186000,"shopId":76616,"reject":0,"shopOrderId":"75990","anonymous":false,"visibility":"NAME","region":2,"pro":""}')]))
+# print(feature_unigrams_bigrams([json.loads('{"text":"абвгдеёжзийклмнопрстуфхцчшщъыьэюя","grade":2,"delivery":"DELIVERY","id":66186256,"authorInfo":{"grades":1,"uid":431432957},"shop":{"id":76616,"name":"Cifrovoi.com"},"author":"Чадович Андрей","comments":[],"agree":0,"date":1477849186000,"shopId":76616,"reject":0,"shopOrderId":"75990","anonymous":false,"visibility":"NAME","region":2,"pro":""}')]))

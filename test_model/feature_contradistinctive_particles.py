@@ -1,5 +1,8 @@
 import re
 
+def json_to_text(json):
+    return json.get('text', '') + '\n' + json.get('pro', '') + '\n' + json.get('contra', '')
+
 # возможно, надо будет результат на что-то поделить, чтобы нормировать его,
 # так как сейчас взнос фичи зависит от длины предложения
 def feature_contradistinctive_particles(reviews_array):
@@ -48,11 +51,11 @@ def feature_contradistinctive_particles(reviews_array):
 
     for review in reviews_array:
         features.append([
-            helper(review['text']) + helper(review['pro']) + helper(review['contra'])
+            helper(json_to_text(review))
         ])
 
     return features
 
 
-# import json
-# print(feature_contradistinctive_particles([json.loads('{"text":"дирижабль все ж таки ага что ни","grade":2,"delivery":"DELIVERY","id":66186256,"authorInfo":{"grades":1,"uid":431432957},"shop":{"id":76616,"name":"Cifrovoi.com"},"author":"Чадович Андрей","contra":"Отсутствуют","comments":[],"agree":0,"date":1477849186000,"shopId":76616,"reject":0,"shopOrderId":"75990","anonymous":false,"visibility":"NAME","region":2,"pro":"Хорошее обслуживание"}')]))
+import json
+print(feature_contradistinctive_particles([json.loads('{"text":"дирижабль","grade":2,"delivery":"DELIVERY","id":66186256,"authorInfo":{"grades":1,"uid":431432957},"shop":{"id":76616,"name":"Cifrovoi.com"},"author":"Чадович Андрей","contra":"Отсутствуют","comments":[],"agree":0,"date":1477849186000,"shopId":76616,"reject":0,"shopOrderId":"75990","anonymous":false,"visibility":"NAME","region":2,"pro":"Хорошее обслуживание"}')]))

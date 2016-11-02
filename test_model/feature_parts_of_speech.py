@@ -1,6 +1,8 @@
 import re
 from pymystem3 import Mystem
 
+def json_to_text(json):
+    return json.get('text', '') + '\n' + json.get('pro', '') + '\n' + json.get('contra', '')
 
 def feature_parts_of_speech(reviews_array):
     features = []
@@ -46,8 +48,8 @@ def feature_parts_of_speech(reviews_array):
         return grams_vector
 
     for review in reviews_array:
-        data = helper(review['text'] + review['pro'] + review['contra'])
-        features.append(data)
+
+        features.append(helper(json_to_text(review)))
 
     return features
 
