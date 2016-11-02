@@ -53,7 +53,7 @@ def perform_crossval(reviews, labels, clf, metric=lambda x, y: 1,
         pyplot.show()
 
     cv = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
-    scores = cross_val_score(clf, reviews, labels, scoring=metric, cv=cv)
+    scores = cross_val_score(clf, features, labels, scoring=metrics.make_scorer(metric), cv=cv)
 
     return scores.mean()
 
