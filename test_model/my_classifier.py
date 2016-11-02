@@ -1,14 +1,15 @@
-from sklearn.ensemble import RandomForestClassifier
+import random
 
-class Classifier:
+
+class RandomClassifier:
     def __init__(self):
-        self.cls = RandomForestClassifier(n_estimators=30)
+        pass
 
     def fit(self, X, y):
-        self.cls.fit(X, y)
+        pass
 
     def predict(self, X):
-        return self.cls.predict(X)
+        return [random.randint(0, 1) for i in range(len(X))]
 
 
 def get_features_inner(reviews_array):
