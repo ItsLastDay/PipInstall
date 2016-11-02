@@ -1,5 +1,6 @@
 import random
 
+
 class RandomClassifier:
     def __init__(self):
         pass
@@ -9,6 +10,7 @@ class RandomClassifier:
 
     def predict(self, X):
         return [random.randint(0, 1) for i in range(len(X))]
+
 
 def get_features_inner(reviews_array):
     features = []
