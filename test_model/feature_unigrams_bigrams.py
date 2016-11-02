@@ -1,7 +1,7 @@
 import re
 
 
-def feature_contradistinctive_particles(reviews_array):
+def feature_unigrams_bigrams(reviews_array):
     features = []
     grams_map = {}
     cyrillic_base_unicode = 0x0430
@@ -21,7 +21,7 @@ def feature_contradistinctive_particles(reviews_array):
         for i in range(len(string_review)):
             grams_vector[grams_map[string_review[i]]] += 1
 
-        for i in range(len(string_review) - 2):
+        for i in range(len(string_review) - 1):
             grams_vector[grams_map[string_review[i:i+2]]] += 1
 
         return grams_vector
@@ -34,4 +34,4 @@ def feature_contradistinctive_particles(reviews_array):
 
 
 # import json
-# print(feature_contradistinctive_particles([json.loads('{"text":"абвгдеёжзийклмнопрстуфхцчшщъыьэюя","grade":2,"delivery":"DELIVERY","id":66186256,"authorInfo":{"grades":1,"uid":431432957},"shop":{"id":76616,"name":"Cifrovoi.com"},"author":"Чадович Андрей","contra":"","comments":[],"agree":0,"date":1477849186000,"shopId":76616,"reject":0,"shopOrderId":"75990","anonymous":false,"visibility":"NAME","region":2,"pro":""}')]))
+# print(feature_unigrams_bigrams([json.loads('{"text":"абвгдеёжзийклмнопрстуфхцчшщъыьэюя","grade":2,"delivery":"DELIVERY","id":66186256,"authorInfo":{"grades":1,"uid":431432957},"shop":{"id":76616,"name":"Cifrovoi.com"},"author":"Чадович Андрей","contra":"","comments":[],"agree":0,"date":1477849186000,"shopId":76616,"reject":0,"shopOrderId":"75990","anonymous":false,"visibility":"NAME","region":2,"pro":""}')]))
