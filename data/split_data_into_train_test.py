@@ -3,6 +3,7 @@
 import os
 import json
 import os.path
+import random
 
 assessed_results_dir = './assessing_results'
 
@@ -31,6 +32,9 @@ if __name__ == '__main__':
 
     print('Total number of good reviews: {}'.format(len(truthful_data)))
     print('Total number of paid reviews: {}'.format(len(not_truthful_data)))
+
+    random.shuffle(truthful_data)
+    random.shuffle(not_truthful_data)
 
     sz_min_set = min(len(truthful_data), len(not_truthful_data))
 
