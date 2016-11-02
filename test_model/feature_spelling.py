@@ -1,15 +1,24 @@
+import numpy as np
 import enchant
 from enchant.utils import levenshtein
 
 
-def count_typos(list_of_lists_of_words):
-    checker = enchant.Dict('ru_RU')
-    return sum(levenshtein(word, checker.suggest(word)[0]) if not checker.check(word) else 0
-               for word in list_of_lists_of_words)
+checker = enchant.Dict('ru_RU')
 
 
-def count_all_typos(list_of_words):
-    return [count_typos(text) for text in list_of_words]
+def count_typos(text):
+    errors = 0
+    for word in text:
+        if not checker.check(word):
+            suggestions = checker.suggest(word)
+            if suggestions:
+                errors += levenshtein(word, suggestions[0])
+
+    return [errors]
+
+
+def count_all_typos(texts):
+    return np.asarray([count_typos(text) for text in texts])
 
 
 def main():
