@@ -1,6 +1,8 @@
 import re
 from pymystem3 import Mystem
 
+def json_to_text(json):
+    return json.get('text', '') + '\n' + json.get('pro', '') + '\n' + json.get('contra', '')
 
 def feature_length_of_review(reviews_array):
     features = []
@@ -17,7 +19,7 @@ def feature_length_of_review(reviews_array):
 
     for review in reviews_array:
         features.append([
-            helper(review['text']) + helper(review['pro']) + helper(review['contra'])
+            helper(json_to_text(review))
         ])
 
     return features
