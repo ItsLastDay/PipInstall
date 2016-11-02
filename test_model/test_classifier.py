@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import pickle
 
 from matplotlib import pyplot
 
@@ -38,6 +39,9 @@ def perform_crossval(reviews, labels, clf, metric=lambda x, y: 1,
     '''
     feature_funcs = feature_funcs or []
     features = compute_features(reviews, feature_funcs)
+    dump_name = ''.join(map(lambda f: f.__name__, feature_funcs))
+    with open(dump_name, 'wb') as dump_file:
+        pickle.dump(features, dump_file)
 
     if print_features > 0:
         print('First {} features (for good reviews):'.format(print_features))
