@@ -83,7 +83,7 @@ if __name__ == '__main__':
     labels = np.array(labels)
 
     scores = perform_crossval(flat_reviews, labels, RandomForestClassifier(n_estimators=300, random_state=42),
-                              metric=metrics.f1_score,
+                              metric=metrics.accuracy_score,
                               feature_funcs=[get_features_inner], print_features=args.print_features,
                               visualize=args.visualize)
 
