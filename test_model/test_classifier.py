@@ -14,6 +14,10 @@ from sklearn.ensemble import RandomForestClassifier
 
 from load_data import load_reviews
 from my_classifier import get_features_inner, RandomClassifier
+from feature_synonim import get_features_synonim
+from feature_number_exclamation import get_features_number_exclamation
+from feature_mean_len_word import get_features_mean_len_word
+from feature_meta import get_features_meta
 
 
 def compute_features(reviews, feature_funcs):

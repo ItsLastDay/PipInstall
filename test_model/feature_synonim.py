@@ -1,7 +1,4 @@
-
-# coding: utf-8
-
-# In[46]:
+from pymystem3 import Mystem
 
 synonim_dict = open("syn_dict.txt").read().split('\n')
 syn_dict = {}
@@ -14,7 +11,7 @@ def get_features_synonim(reviews_array):
     features = []
     mstem = Mystem()
     for review in reviews_array:
-        features.append(0)
+        features.append([0])
         lemmas = mstem.lemmatize(review.get('text','') + review.get('pro','') + review.get('contra',''))
         for lemma in lemmas:
             count_syn = 0
@@ -24,11 +21,9 @@ def get_features_synonim(reviews_array):
                     if word in lemmas != -1:
                         count_syn += 1
                         lemmas.remove(word)
-            features[len(features) - 1] += count_syn
+            features[len(features) - 1][0] += count_syn
     return features
 
-
-# In[ ]:
 
 
 
