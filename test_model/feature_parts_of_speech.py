@@ -26,9 +26,11 @@ def feature_parts_of_speech(reviews_array):
         only_parts = m.analyze(string_review)
 
         for part in only_parts:
-            if 'analysis' in part:
+            try:
                 gr = part['analysis'][0]['gr']
                 parts.append(re.search('^[A-Z]+', gr).group())
+            except Exception:
+                pass
 
 
         return parts
