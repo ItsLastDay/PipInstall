@@ -12,6 +12,7 @@ import numpy as np
 from load_data import load_reviews
 from my_classifier import get_features_inner, RandomClassifier
 
+
 def compute_features(reviews, feature_funcs):
     features = [[] for i in range(len(reviews))]
 
@@ -21,6 +22,7 @@ def compute_features(reviews, feature_funcs):
             features[i].extend(cur_features[i])
 
     return np.array(features)
+
 
 def perform_crossval(reviews, labels, classifier_class, metric=lambda x, y: 1, 
         feature_funcs=[], print_features=0, visualize=False):
@@ -48,7 +50,7 @@ def perform_crossval(reviews, labels, classifier_class, metric=lambda x, y: 1,
         pyplot.show()
 
     scores = []
-    skf = StratifiedKFold(n_splits=10)
+    skf = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
     for train, test in skf.split(features, labels):
         train_features, train_labels = features[train], labels[train]
         test_features, test_labels = features[test], labels[test]
@@ -84,13 +86,13 @@ if __name__ == '__main__':
     # 2. label for each object (0 - good, 1 - paid).
     flat_reviews = reviews['good'] + reviews['paid']
     labels = [0 for i in range(len(reviews['good']))] + \
-            [1 for i in range(len(reviews['paid']))]
+             [1 for i in range(len(reviews['paid']))]
 
     labels = np.array(labels)
 
     scores = perform_crossval(flat_reviews, labels, RandomClassifier,
-        metric=metrics.f1_score,
-        feature_funcs=[get_features_inner], print_features=args.print_features,
-        visualize=args.visualize)
+                              metric=metrics.f1_score,
+                              feature_funcs=[get_features_inner], print_features=args.print_features,
+                              visualize=args.visualize)
 
     print(scores)
