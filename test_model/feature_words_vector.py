@@ -11,9 +11,10 @@ from test_classifier import perform_crossval
 
 from sklearn.model_selection import cross_val_score, StratifiedKFold
 
+m = Mystem()
+
 
 def lemmatize_text(text):
-    m = Mystem()
     return ' '.join(word for word in m.lemmatize(text) if all(ch.isalpha() for ch in word))
 
 
@@ -43,7 +44,7 @@ def main():
     scores = cross_val_score(RandomForestClassifier(n_estimators=300, random_state=42),
                              X_train_vect, y, scoring='accuracy', cv=cv)
 
-    print(scores)
+    print(scores.mean())
 
 
 if __name__ == '__main__':
