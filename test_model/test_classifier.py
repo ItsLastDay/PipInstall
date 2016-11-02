@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import argparse
 from sklearn.model_selection import StratifiedKFold
 from sklearn import metrics
 import numpy as np
@@ -7,14 +8,32 @@ import numpy as np
 from load_data import load_reviews
 from my_classifier import get_features, Classifier
 
+import sys
+
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--test-all', default=False, action='store_true',
+            help='Perform enumeration of all possible 2^k feature\
+            combinations, find the most optimal one.',
+            dest='test_all')
+    parser.add_argument('--print-features', type=int, default=0,
+            dest='print_features')
+    parser.add_argument('--visualize', default=False, action='store_true',
+            dest='visualize')
+    args = parser.parse_args()
+
+
     # Load reviews as dict with two keys: 'good' and 'paid'.
     reviews = load_reviews()
+    sys.exit(0)
 
     # Preprocess all reviews, return two arrays if length n:
     # 1. vector of features for each object,
     # 2. label for each object (0 - good, 1 - paid).
-    features, labels = get_features(reviews)    
+    flat_reviews = reviews['good'] + reviews['paid']
+    labels = [0 for i in range(len(reviews('good')))] + \
+            [1 for i in range(len(reviews['paid']))]
+
     features = np.array(features)
     labels = np.array(labels)
 
