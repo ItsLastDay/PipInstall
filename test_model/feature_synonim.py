@@ -18,7 +18,7 @@ def get_features_synonim(reviews_array):
             if lemma.isalpha():
                 var = syn_dict.get(lemma, [])
                 for word in var:
-                    if word in lemmas != -1:
+                    if word in lemmas:
                         count_syn += 1
                         lemmas.remove(word)
             features[len(features) - 1][0] += count_syn
