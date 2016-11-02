@@ -65,10 +65,11 @@ def perform_crossval(reviews, labels, clf, metric=lambda x, y: 1,
         print(features[-print_features:])
 
     if visualize:
-        tsne = sklearn.manifold.TSNE(perplexity=20)
+        tsne = sklearn.manifold.TSNE(perplexity=20, n_iter=5000)
         twod_points = tsne.fit_transform(features)
 
-        pyplot.scatter(twod_points[:, 0], twod_points[:, 1], c=labels)
+        colors = ['red' if x == 0 else 'green' for x in labels]
+        pyplot.scatter(twod_points[:, 0], twod_points[:, 1], c=colors)
         pyplot.show()
 
     cv = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
@@ -116,7 +117,7 @@ if __name__ == '__main__':
 
     scores = perform_crossval(flat_reviews, labels, RandomForestClassifier(n_estimators=300, random_state=42),
                               metric=metrics.accuracy_score,
-                              feature_funcs=[get_features_inner], print_features=args.print_features,
+                              feature_funcs=[get_features_meta], print_features=args.print_features,
                               visualize=args.visualize)
 
     print(scores)

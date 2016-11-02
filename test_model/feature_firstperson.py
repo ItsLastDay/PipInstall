@@ -27,7 +27,7 @@ def feature_firstperson(reviews_array):
     features = []
 
     for review in reviews_array:
-        text = review.get('text', '') + review.get('pro', '') + review.get('contra', '')
+        text = review.get('text', '') + '\n' + review.get('pro', '') + '\n' + review.get('contra', '')
     
         words = re.split(re_all_nonwords, text)
 
