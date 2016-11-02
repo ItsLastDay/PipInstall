@@ -5,9 +5,11 @@ import argparse
 from matplotlib import pyplot
 
 import sklearn.manifold
-from sklearn.model_selection import StratifiedKFold
+from sklearn.model_selection import cross_val_score, StratifiedKFold
 from sklearn import metrics
 import numpy as np
+
+from sklearn.ensemble import RandomForestClassifier
 
 from load_data import load_reviews
 from my_classifier import get_features_inner, RandomClassifier
@@ -24,8 +26,8 @@ def compute_features(reviews, feature_funcs):
     return np.array(features)
 
 
-def perform_crossval(reviews, labels, classifier_class, metric=lambda x, y: 1, 
-        feature_funcs=[], print_features=0, visualize=False):
+def perform_crossval(reviews, labels, clf, metric=lambda x, y: 1,
+                     feature_funcs=None, print_features=0, visualize=False):
     '''
     Perform cross validation on reviews.
 
@@ -34,6 +36,7 @@ def perform_crossval(reviews, labels, classifier_class, metric=lambda x, y: 1,
     Each element of `feature_funcs` is a function
         <array of reviews> -> <list of features>
     '''
+    feature_funcs = feature_funcs or []
     features = compute_features(reviews, feature_funcs)
 
     if print_features > 0:
@@ -49,33 +52,22 @@ def perform_crossval(reviews, labels, classifier_class, metric=lambda x, y: 1,
         pyplot.scatter(twod_points[:, 0], twod_points[:, 1], c=labels)
         pyplot.show()
 
-    scores = []
-    skf = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
-    for train, test in skf.split(features, labels):
-        train_features, train_labels = features[train], labels[train]
-        test_features, test_labels = features[test], labels[test]
+    cv = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
+    scores = cross_val_score(clf, reviews, labels, scoring=metric, cv=cv)
 
-        cls = classifier_class()
-        cls.fit(train_features, train_labels)
-
-        predicted_labels = cls.predict(test_features)
-        
-        score = metric(test_labels, predicted_labels)
-        scores.append(score)
-
-    return scores
+    return scores.mean()
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--test-all', default=False, action='store_true',
-            help='Perform enumeration of all possible 2^k feature\
-            combinations, find the most optimal one.',
-            dest='test_all')
+                        help='Perform enumeration of all possible 2^k feature\
+                        combinations, find the most optimal one.',
+                        dest='test_all')
     parser.add_argument('--print-features', type=int, default=0,
-            dest='print_features')
+                        dest='print_features')
     parser.add_argument('--visualize', default=False, action='store_true',
-            dest='visualize')
+                        dest='visualize')
     args = parser.parse_args()
 
     # Load reviews as dict with two keys: 'good' and 'paid'.
@@ -90,7 +82,7 @@ if __name__ == '__main__':
 
     labels = np.array(labels)
 
-    scores = perform_crossval(flat_reviews, labels, RandomClassifier,
+    scores = perform_crossval(flat_reviews, labels, RandomForestClassifier(n_estimators=300, random_state=42),
                               metric=metrics.f1_score,
                               feature_funcs=[get_features_inner], print_features=args.print_features,
                               visualize=args.visualize)

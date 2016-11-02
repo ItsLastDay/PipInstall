@@ -6,6 +6,7 @@ import json
 DATA_FOLDER = '../data'
 REVIEWS_PREFIX = 'reviews'
 
+
 def load_reviews():
     reviews = dict()
     for review_type in ('good', 'paid'):
