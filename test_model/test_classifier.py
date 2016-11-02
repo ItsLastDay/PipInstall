@@ -2,6 +2,7 @@
 
 import argparse
 import pickle
+import sys
 
 from matplotlib import pyplot
 
@@ -18,6 +19,13 @@ from feature_synonim import get_features_synonim
 from feature_number_exclamation import get_features_number_exclamation
 from feature_mean_len_word import get_features_mean_len_word
 from feature_meta import get_features_meta
+from feature_caps_words import feature_caps_words
+from feature_contradistinctive_particles import feature_contradistinctive_particles
+from feature_firstperson import feature_firstperson
+from feature_length_of_review import feature_length_of_review
+from feature_parts_of_speech import feature_parts_of_speech
+#from feature_shop_answer import get_features_shop_answer
+from feature_unigrams_bigrams import feature_unigrams_bigrams
 
 
 def compute_features(reviews, feature_funcs):
@@ -28,7 +36,13 @@ def compute_features(reviews, feature_funcs):
         for i in range(len(reviews)):
             features[i].extend(cur_features[i])
 
-    return np.array(features)
+    fetures = np.array(features)
+
+    dump_name = './computed_features/' + ','.join(map(lambda f: f.__name__, feature_funcs)) + '.npy'
+    with open(dump_name, 'wb') as dump_file:
+        np.save(dump_name, features)
+
+    return features
 
 
 def perform_crossval(reviews, labels, clf, metric=lambda x, y: 1,
@@ -43,9 +57,6 @@ def perform_crossval(reviews, labels, clf, metric=lambda x, y: 1,
     '''
     feature_funcs = feature_funcs or []
     features = compute_features(reviews, feature_funcs)
-    dump_name = './computed_features/' + ','.join(map(lambda f: f.__name__, feature_funcs)) + '.npy'
-    with open(dump_name, 'wb') as dump_file:
-        np.save(dump_name, features)
 
     if print_features > 0:
         print('First {} features (for good reviews):'.format(print_features))
@@ -89,6 +100,19 @@ if __name__ == '__main__':
              [1 for i in range(len(reviews['paid']))]
 
     labels = np.array(labels)
+
+    if args.test_all:
+        feature_funcs = list(filter(lambda x: x.startswith('feature_'),
+        locals().keys()))
+        feature_funcs.extend(list(filter(lambda x: x.startswith('get_features_'),
+        locals().keys())))
+        print('Computing and saving features')
+        for func in feature_funcs:
+            f = locals()[func]
+            print(f.__name__)
+            compute_features(flat_reviews, [f])
+
+        sys.exit(0)
 
     scores = perform_crossval(flat_reviews, labels, RandomForestClassifier(n_estimators=300, random_state=42),
                               metric=metrics.accuracy_score,
