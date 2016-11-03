@@ -28,10 +28,10 @@ if __name__ == '__main__':
         os.path.abspath(os.path.join(assessed_results_dir, name)), 
         os.listdir(assessed_results_dir)))
 
-    truthful_names = list(filter(lambda x: x.endswith('json_truthful.txt'),
+    truthful_names = list(filter(lambda x: 'json_truthful' in x,
             result_files))
     not_truthful_names = list(filter(lambda x: 
-            x.endswith('json_not_truthful.txt'),
+            'json_not_truthful' in x,
             result_files))
 
     truthful_data = get_review_data(truthful_names)
@@ -59,8 +59,8 @@ if __name__ == '__main__':
             json.dump(not_truthful_data[-(sz_min_set - 50):], train_reviews_paid)
 
     if args.gen_seed_cotraining:
-        # Dump seed reviews for cotraining. 
+        # Dump seed reviews for cotraining, use ALL data. 
         with open('./cotraining_data/seed_good.json', 'w') as seed_good:
-            json.dump(truthful_data[:sz_min_set], seed_good)
+            json.dump(truthful_data, seed_good)
         with open('./cotraining_data/seed_paid.json', 'w') as seed_paid:
-            json.dump(not_truthful_data[:sz_min_set], seed_paid)
+            json.dump(not_truthful_data, seed_paid)
