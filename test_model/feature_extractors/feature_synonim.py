@@ -1,6 +1,10 @@
 from pymystem3 import Mystem
+import os.path
 
-synonim_dict = open("syn_dict.txt").read().split('\n')
+syn_dict_path = os.path.abspath(os.path.join(os.path.dirname(__file__),
+    'syn_dict.txt'))
+
+synonim_dict = open(syn_dict_path).read().split('\n')
 syn_dict = {}
 for it in synonim_dict:
     string = it.split('\t')

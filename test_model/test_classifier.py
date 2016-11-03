@@ -10,23 +10,11 @@ import sklearn.manifold
 from sklearn.model_selection import cross_val_score, StratifiedKFold
 from sklearn import metrics
 import numpy as np
-
 from sklearn.ensemble import RandomForestClassifier
 
 from load_data import load_reviews
-from my_classifier import get_features_inner, RandomClassifier
-from feature_synonim import get_features_synonim
-from feature_number_exclamation import get_features_number_exclamation
-from feature_mean_len_word import get_features_mean_len_word
-from feature_meta import get_features_meta
-from feature_caps_words import feature_caps_words
-from feature_contradistinctive_particles import feature_contradistinctive_particles
-from feature_firstperson import feature_firstperson
-from feature_length_of_review import feature_length_of_review
-from feature_parts_of_speech import feature_parts_of_speech
-#from feature_shop_answer import get_features_shop_answer
-from feature_unigrams_bigrams import feature_unigrams_bigrams
 
+from feature_extractors import *
 
 def compute_features(reviews, feature_funcs):
     features = [[] for i in range(len(reviews))]
@@ -80,9 +68,7 @@ def perform_crossval(reviews, labels, clf, metric=lambda x, y: 1,
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--test-all', default=False, action='store_true',
-                        help='Perform enumeration of all possible 2^k feature\
-                        combinations, find the most optimal one.',
+    parser.add_argument('--dump-all', default=False, action='store_true',
                         dest='test_all')
     parser.add_argument('--print-features', type=int, default=0,
                         dest='print_features')
