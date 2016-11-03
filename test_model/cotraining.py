@@ -9,6 +9,9 @@ from test_classifier import compute_features
 
 import sklearn.naive_bayes
 
+def get_text(review):
+    return review.get('pro', '') + '\n' + review.get('contra', '') + '\n' + review.get('text', '')
+
 MIN_PROBA = 0.95
 COTRAIN_FOLDER = '../data/cotraining_data'
 
@@ -81,6 +84,13 @@ if __name__ == '__main__':
         certain_paid_indices = [i for i in range(len(raw_data)) if 
                 raw_proba_review_centric[i][1] > MIN_PROBA and
                 raw_proba_user_centric[i][1] > MIN_PROBA]
+        
+        print('Examples of paid reviews:')
+        for i in range(min(3, len(certain_paid_indices))):
+            idx = certain_paid_indices[i]
+            print('***{}***'.format(get_text(raw_data[idx])))
+    
+
         print('Number of new certain good reviews: {}'.format(len(certain_good_indices)))
         print('Number of new certain paid reviews: {}'.format(len(certain_paid_indices)))
         #print([(i, raw_proba_review_centric[i]) for i in certain_good_indices])
