@@ -16,7 +16,7 @@ from load_data import load_reviews
 
 from feature_extractors import *
 
-def compute_features(reviews, feature_funcs):
+def compute_features(reviews, feature_funcs, dump=False):
     features = [[] for i in range(len(reviews))]
 
     for feature_func in feature_funcs:
@@ -26,9 +26,10 @@ def compute_features(reviews, feature_funcs):
 
     features = np.array(features)
 
-    dump_name = './computed_features/' + ','.join(map(lambda f: f.__name__, feature_funcs)) + '.npy'
-    with open(dump_name, 'wb') as dump_file:
-        np.save(dump_name, features)
+    if dump:
+        dump_name = './computed_features/' + ','.join(map(lambda f: f.__name__, feature_funcs)) + '.npy'
+        with open(dump_name, 'wb') as dump_file:
+            np.save(dump_name, features)
 
     return features
 
@@ -77,7 +78,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     # Load reviews as dict with two keys: 'good' and 'paid'.
-    reviews = load_reviews()
+    reviews = load_reviews(folder='../data/cotraining_data/', prefix='result_data')
 
     # Preprocess all reviews, return two arrays if length n:
     # 1. vector of features for each object,
@@ -89,6 +90,9 @@ if __name__ == '__main__':
     labels = np.array(labels)
 
     if args.test_all:
+        word_vector = FeatureWordsVector()
+        def feature_words_vector(reviews):
+            return word_vector(reviews, True)
         feature_funcs = [
                 get_features_number_exclamation,
                 get_features_meta,
@@ -99,19 +103,23 @@ if __name__ == '__main__':
                 feature_firstperson,
                 feature_length_of_review,
                 feature_parts_of_speech,
-                feature_unigrams_bigrams
+                feature_unigrams_bigrams,
+                feature_words_vector
                 ]
         print('Computing and saving features')
         for i, func in enumerate(feature_funcs):
             f = func
             print(i + 1, f.__name__)
-            compute_features(flat_reviews, [f])
+            compute_features(flat_reviews, [f], dump=True)
 
         sys.exit(0)
 
+    word_vector = FeatureWordsVector()
+    feature_words_vector = lambda x: word_vector(x, True)
+
     scores = perform_crossval(flat_reviews, labels, RandomForestClassifier(n_estimators=300, random_state=42),
                               metric=metrics.accuracy_score,
-                              feature_funcs=[feature_contradistinctive_particles, feature_unigrams_bigrams, feature_firstperson, get_features_synonim, get_features_number_exclamation, feature_length_of_review, feature_caps_words, get_features_meta, get_features_mean_len_word], print_features=args.print_features,
+                              feature_funcs=[feature_contradistinctive_particles, feature_unigrams_bigrams, feature_firstperson, get_features_synonim, get_features_number_exclamation, feature_length_of_review, feature_caps_words, get_features_meta, get_features_mean_len_word, feature_words_vector], print_features=args.print_features,
                               visualize=args.visualize)
 
     print(scores)
