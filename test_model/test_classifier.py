@@ -2,6 +2,7 @@
 
 import argparse
 import pickle
+import sys
 
 from matplotlib import pyplot
 
@@ -9,16 +10,11 @@ import sklearn.manifold
 from sklearn.model_selection import cross_val_score, StratifiedKFold
 from sklearn import metrics
 import numpy as np
-
 from sklearn.ensemble import RandomForestClassifier
 
 from load_data import load_reviews
-from my_classifier import get_features_inner, RandomClassifier
-from feature_synonim import get_features_synonim
-from feature_number_exclamation import get_features_number_exclamation
-from feature_mean_len_word import get_features_mean_len_word
-from feature_meta import get_features_meta
 
+from feature_extractors import *
 
 def compute_features(reviews, feature_funcs):
     features = [[] for i in range(len(reviews))]
@@ -28,7 +24,13 @@ def compute_features(reviews, feature_funcs):
         for i in range(len(reviews)):
             features[i].extend(cur_features[i])
 
-    return np.array(features)
+    fetures = np.array(features)
+
+    dump_name = './computed_features/' + ','.join(map(lambda f: f.__name__, feature_funcs)) + '.npy'
+    with open(dump_name, 'wb') as dump_file:
+        np.save(dump_name, features)
+
+    return features
 
 
 def perform_crossval(reviews, labels, clf, metric=lambda x, y: 1,
@@ -43,9 +45,6 @@ def perform_crossval(reviews, labels, clf, metric=lambda x, y: 1,
     '''
     feature_funcs = feature_funcs or []
     features = compute_features(reviews, feature_funcs)
-    dump_name = './computed_features/' + ','.join(map(lambda f: f.__name__, feature_funcs)) + '.npy'
-    with open(dump_name, 'wb') as dump_file:
-        np.save(dump_name, features)
 
     if print_features > 0:
         print('First {} features (for good reviews):'.format(print_features))
@@ -54,10 +53,11 @@ def perform_crossval(reviews, labels, clf, metric=lambda x, y: 1,
         print(features[-print_features:])
 
     if visualize:
-        tsne = sklearn.manifold.TSNE(perplexity=20)
+        tsne = sklearn.manifold.TSNE(perplexity=20, n_iter=5000)
         twod_points = tsne.fit_transform(features)
 
-        pyplot.scatter(twod_points[:, 0], twod_points[:, 1], c=labels)
+        colors = ['red' if x == 0 else 'green' for x in labels]
+        pyplot.scatter(twod_points[:, 0], twod_points[:, 1], c=colors)
         pyplot.show()
 
     cv = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
@@ -68,9 +68,7 @@ def perform_crossval(reviews, labels, clf, metric=lambda x, y: 1,
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--test-all', default=False, action='store_true',
-                        help='Perform enumeration of all possible 2^k feature\
-                        combinations, find the most optimal one.',
+    parser.add_argument('--dump-all', default=False, action='store_true',
                         dest='test_all')
     parser.add_argument('--print-features', type=int, default=0,
                         dest='print_features')
@@ -90,9 +88,30 @@ if __name__ == '__main__':
 
     labels = np.array(labels)
 
+    if args.test_all:
+        feature_funcs = [
+                get_features_number_exclamation,
+                get_features_meta,
+                get_features_synonim,
+                get_features_mean_len_word,
+                feature_caps_words,
+                feature_contradistinctive_particles,
+                feature_firstperson,
+                feature_length_of_review,
+                feature_parts_of_speech,
+                feature_unigrams_bigrams
+                ]
+        print('Computing and saving features')
+        for i, func in enumerate(feature_funcs):
+            f = func
+            print(i + 1, f.__name__)
+            compute_features(flat_reviews, [f])
+
+        sys.exit(0)
+
     scores = perform_crossval(flat_reviews, labels, RandomForestClassifier(n_estimators=300, random_state=42),
                               metric=metrics.accuracy_score,
-                              feature_funcs=[get_features_inner], print_features=args.print_features,
+                              feature_funcs=[get_features_meta], print_features=args.print_features,
                               visualize=args.visualize)
 
     print(scores)
