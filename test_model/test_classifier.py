@@ -24,7 +24,7 @@ def compute_features(reviews, feature_funcs):
         for i in range(len(reviews)):
             features[i].extend(cur_features[i])
 
-    fetures = np.array(features)
+    features = np.array(features)
 
     dump_name = './computed_features/' + ','.join(map(lambda f: f.__name__, feature_funcs)) + '.npy'
     with open(dump_name, 'wb') as dump_file:
