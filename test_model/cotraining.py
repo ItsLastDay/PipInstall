@@ -25,9 +25,15 @@ if __name__ == '__main__':
     cur_data_good = seed_data['good']
     cur_data_paid = seed_data['paid']
 
+    # Assuming that paid data is always less
+    min_sz = len(cur_data_paid)
+    lefotver_good_data = cur_data_good[min_sz:]
+    cur_data_good = cur_data_good[:min_sz]
+
     print('Raw data has length {}'.format(len(raw_data)))
     print('Good data has length {}'.format(len(cur_data_good)))
     print('Paid data has length {}'.format(len(cur_data_paid)))
+    print('Leftover good has length {}'.format(len(lefotver_good_data)))
 
     number_of_added_good_so_far = 0
     number_of_added_paid_so_far = 0
@@ -100,6 +106,8 @@ if __name__ == '__main__':
             break
         it += 1
 
+    if len(cur_data_good) < len(cur_data_paid):
+        cur_data_good.extend(lefotver_good_data[:len(cur_data_paid) - len(cur_data_good)])
     print('Final number of good reviews: {}'.format(len(cur_data_good)))
     print('Final number of paid reviews: {}'.format(len(cur_data_paid)))
 
