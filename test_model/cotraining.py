@@ -44,6 +44,7 @@ if __name__ == '__main__':
     it = 0
     while True:
         print('\n\nIteration {}'.format(it))
+        break
         cls_review_centric = sklearn.naive_bayes.MultinomialNB()
         cls_user_centric = sklearn.naive_bayes.GaussianNB()
 

@@ -61,6 +61,7 @@ if __name__ == '__main__':
             json.dump(not_truthful_data[-(sz_min_set - TEST_SIZE):], train_reviews_paid)
 
     if args.gen_seed_cotraining:
+        print('ENTER COTRAINING')
         # Put TEST_SIZE reviews of each class into Test set (evaluated in the end)
         with open('./test_reviews_good.json', 'w') as test_reviews_good:
             json.dump(truthful_data[:TEST_SIZE], test_reviews_good)
