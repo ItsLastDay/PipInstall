@@ -1,10 +1,12 @@
 import numpy as np
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import cross_val_score, StratifiedKFold
-
-from load_data import load_reviews
-from feature_words_vector import json_to_texts, lemmatize_text, vectorize_texts
-from feature_spelling import count_all_typos
+import matplotlib.pylab as plt
+from sklearn.naive_bayes import MultinomialNB, GaussianNB
+from sklearn.linear_model import LogisticRegression, SGDClassifier
+from sklearn.svm import SVC, LinearSVC
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
+from sklearn.model_selection import cross_val_score, train_test_split, StratifiedKFold
+from sklearn.metrics import accuracy_score, f1_score, confusion_matrix, classification_report
 
 
 def main():
@@ -18,19 +20,55 @@ def main():
     # X_train_typos = count_all_typos(texts)
     # np.save('computed_features/feature_spelling', X_train_typos)
 
-    features = ['feature_words_vector', 'feature_spelling', 'get_features_synonim',
-                'feature_caps_words', 'feature_contradistinctive_particles', 'feature_firstperson',
-                'feature_length_of_review', 'feature_parts_of_speech', 'feature_unigrams_bigrams',
-                'get_features_mean_len_word', 'get_features_meta', 'get_features_number_exclamation']
-    X_train = np.hstack((np.load('computed_features/{}.npy'.format(feature))
+    features = [
+                'feature_words_vector',
+                'get_features_synonim',
+                'feature_caps_words',
+                'feature_contradistinctive_particles',
+                'feature_firstperson',
+                'feature_length_of_review',
+                'feature_parts_of_speech',
+                'feature_unigrams_bigrams',
+                'get_features_mean_len_word',
+                'get_features_meta',
+                'get_features_number_exclamation'
+                ]
+    print([(feature, len(np.load('computed_features/{}.npy'.format(feature))))
+                         for feature in features])
+    X = np.hstack((np.load('computed_features/{}.npy'.format(feature))
                          for feature in features))
-    y_train = np.array([0 for _ in range(302)] + [1 for _ in range(302)])
+    num_of_reviews = len(X_train)
+    y = np.array([0 for _ in range(num_of_reviews // 2)] + [1 for _ in range(num_of_reviews // 2)])
 
-    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
-    scores = cross_val_score(RandomForestClassifier(max_depth=10, n_estimators=250, random_state=42),
-                             X_train, y_train, scoring='accuracy', cv=cv)
+    # cv = StratifiedKFold(n_splits=2, shuffle=True, random_state=42)
+    # scores = cross_val_score(AdaBoostClassifier(n_estimators=250, learning_rate=1.5, random_state=42),
+    #                          X, y, scoring='accuracy', cv=cv)
+    #
+    # print(scores.mean())
 
-    print(scores.mean())
+    classifiers = {
+        'Multinomial Naive Bayes':            MultinomialNB(),
+        'Gaussian Naive Bayes':               GaussianNB(),
+        'Logistic Regression':                LogisticRegression(n_jobs=-1, random_state=42),
+        'SGD':                                SGDClassifier(loss='log', n_jobs=-1, random_state=42),
+        'Linear SVC':                         LinearSVC(random_state=42),
+        'RBF SVC':                            SVC(probability=True, random_state=42),
+        'Decision Tree (depth = None)':       DecisionTreeClassifier(random_state=42),
+        'Decision Tree (depth = 10)':         DecisionTreeClassifier(max_depth=10, random_state=42),
+        'Random Forest (n_estimators = 250)': RandomForestClassifier(n_estimators=250, n_jobs=-1, random_state=42),
+        'Random Forest (n_estimators = 500)': RandomForestClassifier(n_estimators=500, n_jobs=-1, random_state=42),
+        'AdaBoost':                           AdaBoostClassifier()
+    }
+
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, stratify=y)
+
+    for clf_name, clf in classifiers.items():
+        clf.fit(X_train, y_train)
+        y_pred = clf.predict(X_test)
+        print('Classifier:', clf_name)
+        print('Accuracy score:', accuracy_score(y_test, y_pred))
+        # print('Classification report:\n', classification_report(y_test, y_pred))
+        print('----------------------------------------------')
 
 
 if __name__ == '__main__':
