@@ -9,4 +9,5 @@ from .feature_length_of_review import feature_length_of_review
 from .feature_parts_of_speech import feature_parts_of_speech
 #from .feature_shop_answer import get_features_shop_answer
 from .feature_unigrams_bigrams import feature_unigrams_bigrams
+from .feature_words_vector import FeatureWordsVector
 

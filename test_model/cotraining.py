@@ -31,6 +31,8 @@ if __name__ == '__main__':
                 [1 for i in range(len(cur_data_paid))]
 
         features_review_centric = compute_features(flat_reviews,
+                [feature_words_vector, feature_mean_len_word,
+                    feature_firstperson])
 
     with open('{}/result_data_good.json', 'w') as result_good:
         json.dump(cur_data_good, result_good)
