@@ -22,7 +22,6 @@ def main():
 
     features = [
                 'feature_words_vector',
-                'feature_spelling',
                 'get_features_synonim',
                 'feature_caps_words',
                 'feature_contradistinctive_particles',
@@ -34,10 +33,12 @@ def main():
                 'get_features_meta',
                 'get_features_number_exclamation'
                 ]
-    X_train = np.hstack((np.load('computed_features/{}.npy'.format(feature))
+    print([(feature, len(np.load('computed_features/{}.npy'.format(feature))))
+                         for feature in features])
+    X = np.hstack((np.load('computed_features/{}.npy'.format(feature))
                          for feature in features))
     num_of_reviews = len(X_train)
-    y_train = np.array([0 for _ in range(num_of_reviews // 2)] + [1 for _ in range(num_of_reviews // 2)])
+    y = np.array([0 for _ in range(num_of_reviews // 2)] + [1 for _ in range(num_of_reviews // 2)])
 
     # cv = StratifiedKFold(n_splits=2, shuffle=True, random_state=42)
     # scores = cross_val_score(AdaBoostClassifier(n_estimators=250, learning_rate=1.5, random_state=42),

@@ -16,7 +16,7 @@ from load_data import load_reviews
 
 from feature_extractors import *
 
-def compute_features(reviews, feature_funcs):
+def compute_features(reviews, feature_funcs, dump=False):
     features = [[] for i in range(len(reviews))]
 
     for feature_func in feature_funcs:
@@ -26,9 +26,10 @@ def compute_features(reviews, feature_funcs):
 
     features = np.array(features)
 
-    #dump_name = './computed_features/' + ','.join(map(lambda f: f.__name__, feature_funcs)) + '.npy'
-    #with open(dump_name, 'wb') as dump_file:
-    #    np.save(dump_name, features)
+    if dump:
+        dump_name = './computed_features/' + ','.join(map(lambda f: f.__name__, feature_funcs)) + '.npy'
+        with open(dump_name, 'wb') as dump_file:
+            np.save(dump_name, features)
 
     return features
 
@@ -109,7 +110,7 @@ if __name__ == '__main__':
         for i, func in enumerate(feature_funcs):
             f = func
             print(i + 1, f.__name__)
-            compute_features(flat_reviews, [f])
+            compute_features(flat_reviews, [f], dump=True)
 
         sys.exit(0)
 
