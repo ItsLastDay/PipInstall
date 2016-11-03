@@ -20,9 +20,13 @@ def main():
             [1 for i in range(len(train_data['paid']))]
     train_data = train_data['good'] + train_data['paid']
 
+    print('Length of training data is {}'.format(len(train_data))
+
     ground_truth_labels = [0 for i in range(len(test_data['good']))] +\
             [1 for i in range(len(test_data['paid']))]
     test_data = test_data['good'] + test_data['paid']
+
+    print('Length of testing data is {}'.format(len(test_data))
 
     words_vector = FeatureWordsVector()
     feature_words_vector = lambda x: words_vector(x, True)
