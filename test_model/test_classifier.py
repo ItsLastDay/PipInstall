@@ -89,14 +89,22 @@ if __name__ == '__main__':
     labels = np.array(labels)
 
     if args.test_all:
-        feature_funcs = list(filter(lambda x: x.startswith('feature_'),
-        locals().keys()))
-        feature_funcs.extend(list(filter(lambda x: x.startswith('get_features_'),
-        locals().keys())))
+        feature_funcs = [
+                get_features_number_exclamation,
+                get_features_meta,
+                get_features_synonim,
+                get_features_mean_len_word,
+                feature_caps_words,
+                feature_contradistinctive_particles,
+                feature_firstperson,
+                feature_length_of_review,
+                feature_parts_of_speech,
+                feature_unigrams_bigrams
+                ]
         print('Computing and saving features')
-        for func in feature_funcs:
-            f = locals()[func]
-            print(f.__name__)
+        for i, func in enumerate(feature_funcs):
+            f = func
+            print(i + 1, f.__name__)
             compute_features(flat_reviews, [f])
 
         sys.exit(0)
