@@ -19,7 +19,6 @@ def handle_good(reviews_json):
         else:
             reviews_map[review.get("id")] = review
             votes_map[review.get("id")] = 1
-            print(review)
 
 
 def handle_bad(reviews_json):
