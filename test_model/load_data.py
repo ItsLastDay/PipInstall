@@ -5,7 +5,7 @@ DATA_FOLDER = '../data'
 REVIEWS_PREFIX = 'reviews'
 
 
-def load_reviews():
+def load_reviews(folder=DATA_FOLDER, prefix=REVIEWS_PREFIX):
     reviews = dict()
     for review_type in ('good', 'paid'):
         review_filename = '{}_{}.json'.format(REVIEWS_PREFIX, review_type)
