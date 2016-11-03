@@ -94,7 +94,7 @@ if __name__ == '__main__':
         print('Number of added good so far: {}'.format(number_of_added_good_so_far))
         print('Number of added paid so far: {}'.format(number_of_added_paid_so_far))
 
-        if len(certain_good_indices) + len(certain_paid_indices) == 0 or it == 3:
+        if len(certain_good_indices) + len(certain_paid_indices) == 0:
             break
         it += 1
 
