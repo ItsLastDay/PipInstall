@@ -26,6 +26,8 @@ if __name__ == '__main__':
     cur_data_paid = seed_data['paid']
 
     print('Raw data has length {}'.format(len(raw_data)))
+    print('Good data has length {}'.format(len(cur_data_good)))
+    print('Paid data has length {}'.format(len(cur_data_paid)))
 
     number_of_added_good_so_far = 0
     number_of_added_paid_so_far = 0
@@ -98,6 +100,8 @@ if __name__ == '__main__':
             break
         it += 1
 
+    print('Final number of good reviews: {}'.format(len(cur_data_good)))
+    print('Final number of paid reviews: {}'.format(len(cur_data_paid)))
 
     with open('{}/result_data_good.json'.format(COTRAIN_FOLDER), 'w') as result_good:
         json.dump(cur_data_good, result_good)
