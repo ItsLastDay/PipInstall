@@ -1,5 +1,5 @@
 
-#[id магазина, анализ имени автора по шкале 1-3, длина имени автора, анонимность отзыва, количество оставленных автором отзывов]
+#[анализ имени автора по шкале 1-3, длина имени автора, анонимность отзыва, количество оставленных автором отзывов]
 
 def analyse_name(name):
     if name.count(' ') == 1 and name.istitle():
@@ -13,7 +13,6 @@ def get_features_meta(reviews_array):
     features = []
     for review in reviews_array:
         elem = []
-        elem.append(review['shopId'])
         elem.append(analyse_name(review.get('author', '')))
         elem.append(len(review.get('author', '')))
         elem.append(review['anonymous'])
