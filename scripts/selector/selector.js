@@ -65,11 +65,27 @@ function run_comparison() {
 		while (data[++iterator] && data[iterator].grade < 1);
 
 		if (iterator >= data.length) {
-			alert("array is empty!");
+			saveFileWithUserName();
 			return;
 		}
 
 		renderValues();
+	}
+
+	function saveFileWithUserName(){
+
+		var name = prompt("You have labeled everything! Please enter your name:", "unnamed");
+
+		var json = JSON.stringify(truthful_array),
+			blob = new Blob([json], {type: "text/plain;charset=utf-8"});
+
+		saveAs(blob,file_name + "_truthful_" + name + ".txt" );
+
+
+		json = JSON.stringify(not_truthful_array);
+		blob = new Blob([json], {type: "text/plain;charset=utf-8"});
+
+		saveAs(blob,file_name + "_not_truthful_" + name + ".txt" )
 	}
 
 
