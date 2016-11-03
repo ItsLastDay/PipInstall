@@ -27,7 +27,7 @@ def main():
                 'feature_contradistinctive_particles',
                 'feature_firstperson',
                 'feature_length_of_review',
-                'feature_parts_of_speech',
+                #'feature_parts_of_speech',
                 'feature_unigrams_bigrams',
                 'get_features_mean_len_word',
                 'get_features_meta',
@@ -40,11 +40,12 @@ def main():
     num_of_reviews = len(X)
     y = np.array([0 for _ in range(num_of_reviews // 2)] + [1 for _ in range(num_of_reviews // 2)])
 
-    # cv = StratifiedKFold(n_splits=2, shuffle=True, random_state=42)
-    # scores = cross_val_score(AdaBoostClassifier(n_estimators=250, learning_rate=1.5, random_state=42),
-    #                          X, y, scoring='accuracy', cv=cv)
-    #
-    # print(scores.mean())
+    cv = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
+    scores = cross_val_score(RandomForestClassifier(n_estimators=500, n_jobs=-1, random_state=42),
+                              X, y, scoring='accuracy', cv=cv)
+    
+    print(scores.mean())
+    return 0
 
     classifiers = {
         'Multinomial Naive Bayes':            MultinomialNB(),
@@ -62,7 +63,7 @@ def main():
                                                 ('LR', LogisticRegression(n_jobs=-1, random_state=42)),
                                                 ('RF', RandomForestClassifier(n_estimators=250, n_jobs=-1, random_state=42)),
                                                 ('NB', MultinomialNB())
-                                                ])
+                                                ])#, voting='soft', weights=[2,1,2])
 
     }
 
@@ -73,7 +74,10 @@ def main():
         y_pred = clf.predict(X_test)
         print('Classifier:', clf_name)
         print('Accuracy score:', accuracy_score(y_test, y_pred))
-        # print('Classification report:\n', classification_report(y_test, y_pred))
+        if clf_name == 'Random Forest (n_estimators = 500)':
+            print(y_test)
+            print(y_pred)
+        #print('Classification report:\n', classification_report(y_test, y_pred))
         print('----------------------------------------------')
 
 
