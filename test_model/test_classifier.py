@@ -111,7 +111,7 @@ if __name__ == '__main__':
 
     scores = perform_crossval(flat_reviews, labels, RandomForestClassifier(n_estimators=300, random_state=42),
                               metric=metrics.accuracy_score,
-                              feature_funcs=[get_features_meta], print_features=args.print_features,
+                              feature_funcs=[feature_contradistinctive_particles, feature_unigrams_bigrams, feature_firstperson, get_features_synonim, get_features_number_exclamation, feature_length_of_review, feature_caps_words, get_features_meta, get_features_mean_len_word], print_features=args.print_features,
                               visualize=args.visualize)
 
     print(scores)
