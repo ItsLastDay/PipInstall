@@ -21,10 +21,12 @@ def main():
 
     shop_ids = [211, 42315, 37758, 3678, 76616, 78300, 18196, 242112, 48260, 5557, 359037]
     for shop_id in shop_ids:
-        for i_page in range(1, 6):
-            opinions += get_comments(shop_id, 20, i_page, 'T9hQjm9W7BjYfWnsfkZZUwxRAKdklO')
+        for i_page in range(1, 51):
+            comments = get_comments(shop_id, 20, i_page, 'T9hQjm9W7BjYfWnsfkZZUwxRAKdklO')
+            if comments:
+                opinions += comments
 
-    with open('data.json', 'w') as f:
+    with open('data_new.json', 'w') as f:
         json.dump(opinions, f, ensure_ascii=False)
 
     print(len(opinions))
