@@ -4,7 +4,7 @@ from sklearn.naive_bayes import MultinomialNB, GaussianNB
 from sklearn.linear_model import LogisticRegression, SGDClassifier
 from sklearn.svm import SVC, LinearSVC
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, VotingClassifier
 from sklearn.model_selection import cross_val_score, train_test_split, StratifiedKFold
 from sklearn.metrics import accuracy_score, f1_score, confusion_matrix, classification_report
 
@@ -37,7 +37,7 @@ def main():
                          for feature in features])
     X = np.hstack((np.load('computed_features/{}.npy'.format(feature))
                          for feature in features))
-    num_of_reviews = len(X_train)
+    num_of_reviews = len(X)
     y = np.array([0 for _ in range(num_of_reviews // 2)] + [1 for _ in range(num_of_reviews // 2)])
 
     # cv = StratifiedKFold(n_splits=2, shuffle=True, random_state=42)
@@ -52,17 +52,23 @@ def main():
         'Logistic Regression':                LogisticRegression(n_jobs=-1, random_state=42),
         'SGD':                                SGDClassifier(loss='log', n_jobs=-1, random_state=42),
         'Linear SVC':                         LinearSVC(random_state=42),
-        'RBF SVC':                            SVC(probability=True, random_state=42),
+        'RBF SVC':                            SVC(probability=True, C=0.7, random_state=42),
         'Decision Tree (depth = None)':       DecisionTreeClassifier(random_state=42),
         'Decision Tree (depth = 10)':         DecisionTreeClassifier(max_depth=10, random_state=42),
         'Random Forest (n_estimators = 250)': RandomForestClassifier(n_estimators=250, n_jobs=-1, random_state=42),
         'Random Forest (n_estimators = 500)': RandomForestClassifier(n_estimators=500, n_jobs=-1, random_state=42),
-        'AdaBoost':                           AdaBoostClassifier()
+        'AdaBoost':                           AdaBoostClassifier(),
+        'Voting Classifier':                  VotingClassifier(estimators=[
+                                                ('LR', LogisticRegression(n_jobs=-1, random_state=42)),
+                                                ('RF', RandomForestClassifier(n_estimators=250, n_jobs=-1, random_state=42)),
+                                                ('NB', MultinomialNB())
+                                                ])
+
     }
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, stratify=y)
 
-    for clf_name, clf in classifiers.items():
+    for clf_name, clf in sorted(classifiers.items()):
         clf.fit(X_train, y_train)
         y_pred = clf.predict(X_test)
         print('Classifier:', clf_name)
