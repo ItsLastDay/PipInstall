@@ -62,6 +62,6 @@ This will train the classifier on our training set (it can take a while). Then t
 When you provide necessary information, the script will gather 10 reviews about the given shop (using provided parameters) and 
 will output classifier verdicts for each of them. The above process (except training phase) is looped until the program is closed.  
 Where to get the above information? At the desired shop reviews page on yandex.market:
-![](https://cloud.githubusercontent.com/assets/6823298/20030937/5f5cb0e6-a380-11e6-82a7-5d625c68f3e9.png)
+![](https://cloud.githubusercontent.com/assets/6823298/20030979/524f9430-a381-11e6-9689-89662b08e81e.png)
 ![](https://cloud.githubusercontent.com/assets/6823298/20030965/063dc972-a381-11e6-9d1d-a3ff9bbd25e8.png)
 
