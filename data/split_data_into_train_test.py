@@ -19,7 +19,7 @@ def get_review_data(json_filenames):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('test_size', type=int)
+    parser.add_argument('test_size', type=int, help='number of reviews of each class in testing set')
     args = parser.parse_args()
 
 

@@ -54,26 +54,26 @@ if __name__ == '__main__':
                 [1 for i in range(len(cur_data_paid))]
 
         words_vector = FeatureWordsVector()
-        feature_words_vector = lambda x: words_vector(x, True)
+        feature_words_vector = lambda x, y: words_vector(x, y, True)
 
         # Train two classifiers on distinc features.
         train_features_review_centric = compute_features(flat_reviews,
                 [feature_words_vector,
-                    get_features_number_exclamation])
+                    feature_number_exclamation])
         train_features_user_centric = compute_features(flat_reviews,
-                [get_features_meta])
+                [feature_meta])
 
         cls_review_centric.fit(train_features_review_centric, labels)
         cls_user_centric.fit(train_features_user_centric, labels)
 
 
         # Get features for raw data.
-        feature_words_vector = lambda x: words_vector(x, False)
+        feature_words_vector = lambda x, y: words_vector(x, y, False)
         test_features_review_centric = compute_features(raw_data,
                 [feature_words_vector,
-                    get_features_number_exclamation])
+                    feature_number_exclamation])
         test_features_user_centric = compute_features(raw_data,
-                [get_features_meta])
+                [feature_meta])
 
         raw_proba_review_centric = cls_review_centric.predict_proba(test_features_review_centric)
         raw_proba_user_centric = cls_user_centric.predict_proba(test_features_user_centric)
