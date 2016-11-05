@@ -2,6 +2,7 @@
 
 import json
 import numpy as np
+import argparse
 
 from load_data import load_reviews
 from feature_extractors import *
@@ -17,6 +18,9 @@ COTRAIN_FOLDER = '../data/cotraining_data'
 
 if __name__ == '__main__':
     print('Welcome to cotraining!')
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--break-before-iter', type=int, default=10**10)
+    args = parser.parse_args()
 
     seed_data = load_reviews(folder=COTRAIN_FOLDER, prefix='seed')
 
@@ -36,13 +40,15 @@ if __name__ == '__main__':
     print('Raw data has length {}'.format(len(raw_data)))
     print('Good data has length {}'.format(len(cur_data_good)))
     print('Paid data has length {}'.format(len(cur_data_paid)))
-    print('Leftover good has length {}'.format(len(lefotver_good_data)))
+    print('Leftover good data has length {}'.format(len(lefotver_good_data)))
 
     number_of_added_good_so_far = 0
     number_of_added_paid_so_far = 0
 
     it = 0
     while True:
+        if args.break_before_iter == it:
+            break
         print('\n\nIteration {}'.format(it))
         cls_review_centric = sklearn.naive_bayes.MultinomialNB()
         cls_user_centric = sklearn.naive_bayes.GaussianNB()
@@ -118,6 +124,7 @@ if __name__ == '__main__':
 
     if len(cur_data_good) < len(cur_data_paid):
         cur_data_good.extend(lefotver_good_data[:len(cur_data_paid) - len(cur_data_good)])
+    print('\n\n')
     print('Final number of good reviews: {}'.format(len(cur_data_good)))
     print('Final number of paid reviews: {}'.format(len(cur_data_paid)))
 
