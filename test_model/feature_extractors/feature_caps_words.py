@@ -3,12 +3,14 @@ import re
 def json_to_text(json):
     return json.get('text', '') + '\n' + json.get('pro', '') + '\n' + json.get('contra', '')
 
-def feature_caps_words(reviews_array):
+splitter_nonword_char = re.compile('[^A-Za-zА-Яа-яёЁ]')
+
+def feature_caps_words(reviews_array, texts):
     features = []
 
     def helper(string_review):
         number_of_caps_words = 0
-        review_splitted_by_any_non_word_char = re.split('[^A-Za-zА-Яа-яёЁ]', string_review)
+        review_splitted_by_any_non_word_char = re.split(splitter_nonword_char, string_review)
         length = len(review_splitted_by_any_non_word_char)
         for word in review_splitted_by_any_non_word_char:
             if word.isupper():

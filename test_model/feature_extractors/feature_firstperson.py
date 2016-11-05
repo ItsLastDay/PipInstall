@@ -2,6 +2,7 @@ import pymystem3
 import re
 
 mystem = pymystem3.Mystem()
+
 re_all_nonwords = re.compile('[^\w]')
 
 def is_first_person_pro(mystem_output):
@@ -23,18 +24,14 @@ def is_second_person_pro(mystem_output):
         return False
 
 
-def feature_firstperson(reviews_array):
+def feature_firstperson(reviews_array, texts):
     features = []
 
-    for review in reviews_array:
-        text = review.get('text', '') + '\n' + review.get('pro', '') + '\n' + review.get('contra', '')
-    
-        words = re.split(re_all_nonwords, text)
-
+    for text in texts:
         count_first_person = 0
         count_second_person = 0
 
-        for word in words:
+        for word in text.split(' '):
             if not word:
                 continue
             mystem_output = mystem.analyze(word)

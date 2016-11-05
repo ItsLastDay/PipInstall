@@ -17,7 +17,7 @@ def get_review_data(json_filenames):
 
     return review_data
 
-TEST_SIZE = 50
+TEST_SIZE = 150
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

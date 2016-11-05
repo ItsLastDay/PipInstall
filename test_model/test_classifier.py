@@ -11,16 +11,28 @@ from sklearn.model_selection import cross_val_score, StratifiedKFold
 from sklearn import metrics
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
+from pymystem3 import Mystem
 
 from load_data import load_reviews
 
 from feature_extractors import *
 
+mstem = Mystem()
+
+def lemmatize_text(text):
+    return ' '.join(word for word in mstem.lemmatize(text) if all(ch.isalpha() for ch in word))
+
+
+def json_to_texts(json):
+    return [r.get('text', '') + '\n' + r.get('pro', '') + '\n' + r.get('contra', '')
+            for r in json]
+
 def compute_features(reviews, feature_funcs, dump=False):
     features = [[] for i in range(len(reviews))]
+    texts = [lemmatize_text(text) for text in json_to_texts(reviews)]
 
     for feature_func in feature_funcs:
-        cur_features = feature_func(reviews)
+        cur_features = feature_func(reviews, texts)
         for i in range(len(reviews)):
             features[i].extend(cur_features[i])
 

@@ -3,9 +3,12 @@ import re
 def json_to_text(json):
     return json.get('text', '') + '\n' + json.get('pro', '') + '\n' + json.get('contra', '')
 
+non_word_space = re.compile('[\w\s]')
+non_russian = re.compile('[^a-zа-яё]')
+
 # возможно, надо будет результат на что-то поделить, чтобы нормировать его,
 # так как сейчас взнос фичи зависит от длины предложения
-def feature_contradistinctive_particles(reviews_array):
+def feature_contradistinctive_particles(reviews_array, texts):
     features = []
 
     contradistinctions = [' впрочем ', ' однако ', ' а ', ' но ', ' да ', ' зато ', ' все же ', ' тем не менее ',
@@ -16,7 +19,7 @@ def feature_contradistinctive_particles(reviews_array):
 
     def get_punctuation_count(string_review):
 
-        punctuation_signs = re.split('[\w\s]', string_review)
+        punctuation_signs = re.split(non_word_space, string_review)
         # filter empty strings
         punctuation_signs = [x for x in punctuation_signs if len(x) > 0]
 
@@ -30,7 +33,7 @@ def feature_contradistinctive_particles(reviews_array):
 
         string_review = string_review.lower()
 
-        string_review = re.sub('[^a-zа-яё]', ' ', string_review)
+        string_review = re.sub(non_russian, ' ', string_review)
 
         string_review += " "
 

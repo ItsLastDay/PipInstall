@@ -1,5 +1,5 @@
 
-def get_features_number_exclamation(reviews_array):
+def get_features_number_exclamation(reviews_array, texts):
     features = []
     for review in reviews_array:
         count_excl = 0

@@ -23,10 +23,13 @@ class FeatureWordsVector:
     def __init__(self):
         self.vectorizer = CountVectorizer(encoding='koi8r', stop_words=stopwords.words('russian'), max_features=256)
 
-    def __call__(self, reviews_json, need_to_fit):
-        texts = [lemmatize_text(text) for text in json_to_texts(reviews_json)]
+    def __call__(self, reviews_json, texts, need_to_fit):
+#        texts = [lemmatize_text(text) for text in json_to_texts(reviews_json)]
+#        print(texts[:2])
         if need_to_fit:
-            return self.vectorizer.fit_transform(texts).toarray()
+            t = self.vectorizer.fit_transform(texts).toarray()
+#            print(self.vectorizer.get_feature_names())
+            return t
         else:
             return self.vectorizer.transform(texts).toarray()
 

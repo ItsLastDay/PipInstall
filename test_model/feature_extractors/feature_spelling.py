@@ -17,6 +17,10 @@ def count_typos(text):
     return [errors]
 
 
+def feature_spelling(reviews_array, texts):
+    return [[count_typos(text.split(' '))] for text in texts]
+
+
 def count_all_typos(texts):
     return np.asarray([count_typos(text) for text in texts])
 

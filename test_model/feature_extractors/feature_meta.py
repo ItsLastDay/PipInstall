@@ -9,7 +9,7 @@ def analyse_name(name):
     else:
         return 1
 
-def get_features_meta(reviews_array):
+def get_features_meta(reviews_array, texts):
     features = []
     for review in reviews_array:
         elem = []

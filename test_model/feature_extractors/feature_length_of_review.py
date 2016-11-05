@@ -1,25 +1,22 @@
 import re
-from pymystem3 import Mystem
 
 def json_to_text(json):
     return json.get('text', '') + '\n' + json.get('pro', '') + '\n' + json.get('contra', '')
 
-def feature_length_of_review(reviews_array):
+def feature_length_of_review(reviews_array, texts):
     features = []
-    m = Mystem()
 
-    def helper(string_review):
+    def helper(text):
         length = 0
-        review_splitted_by_any_non_word_char = re.split('[^A-Za-zА-Яа-яёЁ]', string_review)
-        for word in review_splitted_by_any_non_word_char:
-            lemmatized = m.lemmatize(word)
-            length += 0 if lemmatized == [] else len(lemmatized[0])
+        for word in text.split(' '):
+            lemmatized = word
+            length += len(lemmatized)
 
         return length
 
-    for review in reviews_array:
+    for text in texts:
         features.append([
-            helper(json_to_text(review))
+            helper(text)
         ])
 
     return features

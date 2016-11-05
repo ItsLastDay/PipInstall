@@ -3,7 +3,7 @@ import re
 def json_to_text(json):
     return json.get('text', '') + '\n' + json.get('pro', '') + '\n' + json.get('contra', '')
 
-def feature_unigrams_bigrams(reviews_array):
+def feature_unigrams_bigrams(reviews_array, texts):
     features = []
     grams_map = {}
     cyrillic_base_unicode = 0x0430

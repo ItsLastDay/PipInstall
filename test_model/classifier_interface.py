@@ -27,50 +27,45 @@ class Classifier:
 
         print('Length of training data is {}'.format(len(train_data)))
 
-        ground_truth_labels = [0 for i in range(len(test_data['good']))] +\
-                [1 for i in range(len(test_data['paid']))]
-        test_data = test_data['good'] + test_data['paid']
-
-        print('Length of testing data is {}'.format(len(test_data)))
-
         self.words_vector = FeatureWordsVector()
-        feature_words_vector = lambda x: self.words_vector(x, True)
+        feature_words_vector = lambda x, y: self.words_vector(x, y, True)
         feature_funcs = [
                     feature_words_vector,
-                    get_features_synonim,
+                    feature_synonim,
                     feature_caps_words,
                     feature_contradistinctive_particles,
                     feature_firstperson,
                     feature_length_of_review,
                     #feature_parts_of_speech,
                     feature_unigrams_bigrams,
-                    get_features_mean_len_word,
-                    get_features_meta,
-                    get_features_number_exclamation,
-                ]
+                    feature_mean_len_word,
+                    feature_meta,
+                    feature_number_exclamation,
+                    ]
 
         train_data_features = compute_features(train_data, feature_funcs) 
 
         
         self.clf = RandomForestClassifier(n_estimators=500, n_jobs=-1, random_state=42)
         self.clf.fit(train_data_features, train_labels)
+        print('Fitting finished')
 
 
     def predict_json(self, json_review):
-        feature_words_vector = lambda x: self.words_vector(x, False)
+        feature_words_vector = lambda x, y: self.words_vector(x, y, False)
         feature_funcs = [
                     feature_words_vector,
-                    get_features_synonim,
+                    feature_synonim,
                     feature_caps_words,
                     feature_contradistinctive_particles,
                     feature_firstperson,
                     feature_length_of_review,
                     #feature_parts_of_speech,
                     feature_unigrams_bigrams,
-                    get_features_mean_len_word,
-                    get_features_meta,
-                    get_features_number_exclamation,
-                ]
+                    feature_mean_len_word,
+                    feature_meta,
+                    feature_number_exclamation,
+                    ]
 
         features = compute_features([json_review], feature_funcs)
 
