@@ -1,0 +1,77 @@
+\documentclass[mathserif,utf8,14pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage[english,russian]{babel}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{amsmath}
+
+\usetheme{Madrid}
+%\setbeamerfont{framesource}{size=\small}
+%\setbeamercolor{framesource}{fg=gray}
+%\newcommand{\source}[1]{\begin{textblock*}{8cm}(0.5cm,8.7cm)
+%    \begin{beamercolorbox}[ht=0.5cm,left]{framesource}
+%        \usebeamerfont{framesource}\usebeamercolor[fg]{framesource} source: \itshape{{#1}}
+%    \end{beamercolorbox}
+%\end{textblock*}}
+
+\makeatletter
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hspace{0.92\paperwidth}
+  \hbox{%
+%  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+%    \usebeamerfont{author in head/foot}\insertshortauthor%~~\beamer@ifempty{\insertshortinstitute}{}{(\insertshortinstitute)}
+%  \end{beamercolorbox}%
+%  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+%    \usebeamerfont{title in head/foot}\insertshorttitle
+%  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.08\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+%    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+\beamertemplatenavigationsymbolsempty
+
+\title{PipInstall: определение проплаченных отзывов}
+\author{Михаил Кольцов \\ Борис Симиютин \\ Леся Тищенко \\ Михаил Чернявский}
+\vspace*{10px}
+\date{\today}
+\begin{document}
+\begin{frame}
+    \maketitle
+\end{frame}
+
+\begin{frame}{План рассказа}
+    \begin{enumerate}
+        \item Описание задачи
+        \item Ход работ
+            \begin{itemize}
+                \item Предметная область
+                \item Получение обучающей выборки
+                \item Используемые признаки
+                \item Используемые методы и библиотеки
+            \end{itemize}
+        \item Результаты
+            \begin{itemize}
+                \item Тестирование
+                \item Возможности продукта
+                \item Видеодемонстрация
+            \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Формальная постановка задачи}
+\end{frame}
+
+ 
+\begin{frame}{}
+    \begin{center}
+    \large Спасибо за внимание!
+    \end{center}
+\end{frame}
+
+\end{document}
