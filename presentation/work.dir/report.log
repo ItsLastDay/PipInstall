@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.6.10)  5 NOV 2016 16:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.6.10)  5 NOV 2016 19:53
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1494,6 +1494,139 @@ Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 [4
 
 ]
+Overfull \hbox (1.56543pt too wide) has occurred while \output is active
+[]  [] 
+ []
+
+[5
+
+]
+Overfull \hbox (1.56543pt too wide) has occurred while \output is active
+[]  [] 
+ []
+
+[6
+
+]
+Overfull \hbox (1.56543pt too wide) has occurred while \output is active
+[]  [] 
+ []
+
+[7
+
+]
+Overfull \hbox (1.56543pt too wide) has occurred while \output is active
+[]  [] 
+ []
+
+[8
+
+]
+LaTeX Font Info:    Try loading font information for U+msa on input line 163.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 163.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Overfull \hbox (1.56543pt too wide) has occurred while \output is active
+[]  [] 
+ []
+
+[9
+
+]
+Overfull \hbox (1.56543pt too wide) has occurred while \output is active
+[]  [] 
+ []
+
+[10
+
+]
+Overfull \hbox (1.56543pt too wide) has occurred while \output is active
+[]  [] 
+ []
+
+[11
+
+]
+Overfull \hbox (1.56543pt too wide) has occurred while \output is active
+[]  [] 
+ []
+
+[12
+
+]
+LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 203
+.
+ (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
+File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+)
+Overfull \hbox (1.56543pt too wide) has occurred while \output is active
+[]  [] 
+ []
+
+[13
+
+]
+Overfull \hbox (1.56543pt too wide) has occurred while \output is active
+[]  [] 
+ []
+
+[14
+
+]
+Overfull \hbox (1.56543pt too wide) has occurred while \output is active
+[]  [] 
+ []
+
+[15
+
+]
+Overfull \hbox (1.56543pt too wide) has occurred while \output is active
+[]  [] 
+ []
+
+[16
+
+]
+Overfull \hbox (1.56543pt too wide) has occurred while \output is active
+[]  [] 
+ []
+
+[17
+
+]
+Overfull \hbox (1.56543pt too wide) has occurred while \output is active
+[]  [] 
+ []
+
+[18
+
+]
+Overfull \hbox (1.56543pt too wide) has occurred while \output is active
+[]  [] 
+ []
+
+[19
+
+]
+Overfull \hbox (1.56543pt too wide) has occurred while \output is active
+[]  [] 
+ []
+
+[20
+
+]
+Overfull \hbox (1.56543pt too wide) has occurred while \output is active
+[]  [] 
+ []
+
+[21
+
+]
 \tf@nav=\write6
 \openout6 = `report.nav'.
 
@@ -1503,11 +1636,11 @@ Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 \tf@snm=\write8
 \openout8 = `report.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 77.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 77.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 259.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 259.
  (work.dir/report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 77.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 259.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 259.
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
 
@@ -1515,25 +1648,29 @@ Package rerunfilecheck Info: File `report.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 77.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 259.
  ) 
 Here is how much of TeX's memory you used:
- 22391 strings out of 494399
- 394876 string characters out of 6172183
+ 22531 strings out of 494399
+ 397151 string characters out of 6172183
  464614 words of memory out of 5000000
- 25224 multiletter control sequences out of 15000+600000
- 9993 words of font info for 23 fonts, out of 8000000 for 9000
+ 25311 multiletter control sequences out of 15000+600000
+ 15132 words of font info for 37 fonts, out of 8000000 for 9000
  452 hyphenation exceptions out of 8191
  49i,16n,57p,422b,616s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/last/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/lass1728.600pk> </home/last
-/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/lass1200.600pk> </home/last/.texmf-var/fo
-nts/pk/ljfour/lh/lh-t2a/lass0600.600pk> </home/last/.texmf-var/fonts/pk/ljfour/
-lh/lh-t2a/lass1440.600pk> </home/last/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/lass
-2074.600pk>
-Output written on work.dir/report.pdf (4 pages, 43656 bytes).
+/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/lass3583.600pk> </home/last/.texmf-var/fo
+nts/pk/ljfour/lh/lh-t2a/latt1440.600pk> </home/last/.texmf-var/fonts/pk/ljfour/
+lh/lh-t2a/lasi1440.600pk> </home/last/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/lasx
+1440.600pk> </home/last/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/lass1200.600pk> </
+home/last/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/lass0600.600pk> </home/last/.tex
+mf-var/fonts/pk/ljfour/lh/lh-t2a/lass1440.600pk> </home/last/.texmf-var/fonts/p
+k/ljfour/lh/lh-t2a/lass2074.600pk></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmi12.pfb>
+Output written on work.dir/report.pdf (21 pages, 111930 bytes).
 PDF statistics:
- 193 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
- 9 named destinations out of 1000 (max. 500000)
+ 458 PDF objects out of 1000 (max. 8388607)
+ 153 compressed objects within 2 object streams
+ 43 named destinations out of 1000 (max. 500000)
  73 words of extra memory for PDF output out of 10000 (max. 10000000)
 
