@@ -56,6 +56,7 @@ This will train the classifier on obtained training set, and then run it on the 
 This will train the classifier on our training set (it can take a while). Then the script will prompt you to enter  
  - shop id
  - page number
- - sort method
+ - sort method  
+ 
 When you provide needed information, the script will gather 10 reviews about the given shop (using provided parameters) and 
 will output classifier verdicts for each of them. The above process (except training phase) is looped until the program is closed.
