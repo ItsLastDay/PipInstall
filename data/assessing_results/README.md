@@ -1,7 +1,7 @@
 ## Results of assessor work on the first day
 
 "paid" means "paid reviews",  
-"good" means "true reviews by real peple".
+"good" means "true reviews by real people".
 
 ### data1.json
 By Lesya Tishenko
