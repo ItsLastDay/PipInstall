@@ -51,7 +51,8 @@ Now, you may want to start the classifier or perform the testing.
 *Testing*. Assuming you are in `test_model` folder, type:  
 `python3 final_test.py`  
 This will train the classifier on obtained training set, and then run it on the testing set. The script outputs the achieved accuracy score, predicted classes (0 for good reviews, 1 for paid ones) and desired classes.  
-*Using the classifier*. Assuming you are in `test_model` folder, type:  
+*Using the classifier*. Our classifier works only for [yandex.market](https://market.yandex.ru/) reviews, which are positive. Actually, you can have a verdict even for negative reviews, but please consider them irrelevant.  
+Assuming you are in `test_model` folder, type:  
 `python3 human_interface.py`  
 This will train the classifier on our training set (it can take a while). Then the script will prompt you to enter  
  - shop id
@@ -59,4 +60,8 @@ This will train the classifier on our training set (it can take a while). Then t
  - sort method  
  
 When you provide necessary information, the script will gather 10 reviews about the given shop (using provided parameters) and 
-will output classifier verdicts for each of them. The above process (except training phase) is looped until the program is closed.
+will output classifier verdicts for each of them. The above process (except training phase) is looped until the program is closed.  
+Where to get the above information? At the desired shop reviews page on yandex.market:
+![](https://cloud.githubusercontent.com/assets/6823298/20030937/5f5cb0e6-a380-11e6-82a7-5d625c68f3e9.png)
+![](https://cloud.githubusercontent.com/assets/6823298/20030965/063dc972-a381-11e6-9d1d-a3ff9bbd25e8.png)
+
