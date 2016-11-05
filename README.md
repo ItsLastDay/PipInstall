@@ -23,7 +23,7 @@ Overall, our team gave solid performance on day 1.
  - we got our first results! Using 10-fold cross-validation, we have obtained 0.55-0.60 accuracy score with RandomForest.  
 Overall, on day 2 we dived into code writing and finally got a feeling of the problem at hand.
 
-## Out progress on day 3
+## Our progress on day 3
  - we analyzed our features and selected the most effective ones;
  - we implemented a method for obtaining more labeled reviews using seed labeled reviews + raw unlabeled reviews;
  - we re-labeled our data, so that each review is labeled by 3 assessors;
