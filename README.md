@@ -58,5 +58,5 @@ This will train the classifier on our training set (it can take a while). Then t
  - page number
  - sort method  
  
-When you provide needed information, the script will gather 10 reviews about the given shop (using provided parameters) and 
+When you provide necessary information, the script will gather 10 reviews about the given shop (using provided parameters) and 
 will output classifier verdicts for each of them. The above process (except training phase) is looped until the program is closed.
