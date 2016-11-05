@@ -51,7 +51,7 @@ class Classifier:
         print('Fitting finished')
 
 
-    def predict_json(self, json_review):
+    def predict_json(self, json_reviews):
         feature_words_vector = lambda x, y: self.words_vector(x, y, False)
         feature_funcs = [
                     feature_words_vector,
@@ -67,9 +67,9 @@ class Classifier:
                     feature_number_exclamation,
                     ]
 
-        features = compute_features([json_review], feature_funcs)
+        features = compute_features(json_reviews, feature_funcs)
 
-        predicted_class = self.clf.predict(features)[0]
+        predicted_classes = self.clf.predict(features)
 
-        return 'Good' if predicted_class == 0 else 'Paid'
+        return ['Good' if predicted_class == 0 else 'Paid' for predicted_class in predicted_classes]
         
