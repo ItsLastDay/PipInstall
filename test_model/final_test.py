@@ -39,37 +39,37 @@ def main():
     print('Length of testing data is {}'.format(len(test_data)))
 
     words_vector = FeatureWordsVector()
-    feature_words_vector = lambda x: words_vector(x, True)
+    feature_words_vector = lambda x, y: words_vector(x, y, True)
     feature_funcs = [
                 feature_words_vector,
-                get_features_synonim,
+                feature_synonim,
                 feature_caps_words,
                 feature_contradistinctive_particles,
                 feature_firstperson,
                 feature_length_of_review,
                 #feature_parts_of_speech,
                 feature_unigrams_bigrams,
-                get_features_mean_len_word,
-                get_features_meta,
-                get_features_number_exclamation,
-            ]
+                feature_mean_len_word,
+                feature_meta,
+                feature_number_exclamation,
+                ]
 
     train_data_features = compute_features(train_data, feature_funcs) 
 
-    feature_words_vector = lambda x: words_vector(x, False)
+    feature_words_vector = lambda x, y: words_vector(x, y, False)
     feature_funcs = [
                 feature_words_vector,
-                get_features_synonim,
+                feature_synonim,
                 feature_caps_words,
                 feature_contradistinctive_particles,
                 feature_firstperson,
                 feature_length_of_review,
                 #feature_parts_of_speech,
                 feature_unigrams_bigrams,
-                get_features_mean_len_word,
-                get_features_meta,
-                get_features_number_exclamation,
-            ]
+                feature_mean_len_word,
+                feature_meta,
+                feature_number_exclamation,
+                ]
 
     test_data_features = compute_features(test_data, feature_funcs)
 
