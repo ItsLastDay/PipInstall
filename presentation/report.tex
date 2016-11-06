@@ -4,6 +4,7 @@
 \usepackage[english,russian]{babel}
 \usepackage[absolute,overlay]{textpos}
 \usepackage{amsmath}
+\usepackage{graphicx}
 
 \usetheme{Madrid}
 %\setbeamerfont{framesource}{size=\small}
@@ -173,10 +174,23 @@
 \end{frame}
 
 \begin{frame}{Обучающая выборка}
-     Здесь слайд(ы) про интерфейс и статистику: сколько отзывов положительных
-     набрали, по скольким отзывам есть консенсус среди размечавших людей 
-     (>= 2, >= 3 людей).
-     Можно с примерами.
+\begin{itemize}
+         \item размечаем в самописном интерфейсе.
+         \item вот в таком:
+     \end{itemize}
+     \includegraphics[width=\linewidth]{labeling_interface.png}
+\end{frame}
+
+\begin{frame}{Обучающая выборка}
+     \begin{itemize}
+	 \item каждый голосует за каждый отзыв, считает ли он его проплаченным или нет
+         \item результаты разметки:
+	 \begin{itemize}	
+              \item двое и более проголосовало за один вариант: 300 хороших, 714 проплаченных
+              \item решение единогласное: 255 хороших, 42 проплаченных
+ 	 \end{itemize}
+	 \item единогласных маловато
+     \end{itemize}
 \end{frame}
 
 \begin{frame}{Используемые признаки}
