@@ -71,7 +71,7 @@
         \item определяет хорошие отзывы
         \item и плохие (проплаченные) отзывы
     \end{itemize}
-    Решили смотреть только на положитьельные отзывы.
+    Решили смотреть только на положительные отзывы.
 \end{frame}
 
 \begin{frame}{Хороший отзыв}
@@ -95,6 +95,22 @@
                 Ну я у них и заказал. Позвонил в магазин, уточнил, смогут ли завтра привезти. 
                 Менеджер подтвердил, что всё будет так, как я прочитал на сайте. 
                 На следующий день приехал курьер и привез мой телефон.
+\end{frame}
+
+\begin{frame}{Аналоги}
+    \begin{itemize}
+        \item поизучали литературу по review spam detection
+        \item особенно
+            <<Crawford M. et al. Survey of review spam detection using machine learning techniques //Journal of Big Data. – 2015.>>;
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Аналоги}
+     \addtocounter{framenumber}{-1}
+     \begin{columns}
+         \column{\dimexpr\paperwidth-10pt}
+     \includegraphics[scale=0.3]{./converted_jpg.pdf}
+     \end{columns}
 \end{frame}
 
 \begin{frame}{Предметная область}
@@ -183,13 +199,13 @@
 
 \begin{frame}{Обучающая выборка}
      \begin{itemize}
-	 \item каждый голосует за каждый отзыв, считает ли он его проплаченным или нет
+	 \item каждый голосует за каждый отзыв, считает ли он его проплаченным или нет;
          \item результаты разметки:
 	 \begin{itemize}	
-              \item двое и более проголосовало за один вариант: 714 хороших, 300 проплаченных
-              \item решение единогласное: 255 хороших, 42 проплаченных
+              \item двое и более проголосовало за один вариант: 714 хороших, 300 проплаченных;
+              \item решение единогласное: 255 хороших, 42 проплаченных;
  	 \end{itemize}
-	 \item единогласных маловато
+	 \item единогласных маловато.
      \end{itemize}
 \end{frame}
 
@@ -199,7 +215,8 @@
         \item количество КАПСОВЫХ слов;
         \item длина отзыва;
         \item количество противопоставлений;
-        \item гистограмма частей речи;
+        \item \textit{гистограмма частей речи};
+        \item \textit{количество грамматических ошибок};
     \end{itemize}
 \end{frame}
 
@@ -211,29 +228,25 @@
         \item средняя длина слова;
         \item количество синонимов внутри отзыва;
         \item мета-информация: об авторе, о магазине, $\ldots$
-        \item количество грамматических ошибок.
     \end{itemize}
     Ссылки на реализацию: \url{https://github.com/ItsLastDay/PipInstall/wiki/ML-features}
-\end{frame}
-
-\begin{frame}{Анализ полезности признаков}
-    Здесь слайд(ы) про то, какие признаки как повлияли на качество классификатора;
-    как мы оценивали полезность (в том числе визуально) и т.п.
 \end{frame}
 
 \begin{frame}{Используемые методы и библиотеки}
     \begin{itemize}
         \item библиотеки: enchant, nltk, pymystem3, sklearn, matplotlib;
         \item нашли словарь синонимов;
-        \item поизучали литературу по review spam detection, особенно
-            <<Crawford M. et al. Survey of review spam detection using machine learning techniques //Journal of Big Data. – 2015.>>;
         \item реализовали метод по расширению размеченных данных.
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Используемые методы и библиотеки}
-    Здесь слайд(ы) про то, как мы использовали какие библиотеки,
-    какие классификаторы пробовали, как выбирали.
+     \addtocounter{framenumber}{-1}
+    \begin{itemize}
+        \item перебирали классификаторы из sklearn;
+        \item всех победил \textbf{Random Forest};
+        \item много признаков, разнородные.
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{Результаты. Тестирование}

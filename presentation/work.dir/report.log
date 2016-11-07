@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.6.10)  7 NOV 2016 02:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.6.10)  7 NOV 2016 03:31
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1508,13 +1508,39 @@ Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 [6
 
 ]
+
+pdfTeX warning: pdflatex (file ./converted_jpg.pdf): PDF inclusion: found PDF v
+ersion <1.6>, but at most version <1.5> allowed
+<./converted_jpg.pdf, id=58, 1212.53pt x 855.195pt>
+File: ./converted_jpg.pdf Graphic file (type pdf)
+ <use ./converted_jpg.pdf>
+Package pdftex.def Info: ./converted_jpg.pdf used on input line 114.
+(pdftex.def)             Requested size: 363.76181pt x 256.56049pt.
+
+Overfull \hbox (9.56645pt too wide) in paragraph at lines 114--114
+[][]  
+ []
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 114.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 114.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Overfull \vbox (32.41154pt too high) detected at line 114
+ []
+
+
 Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 []  [] 
  []
 
 [7
 
-]
+ <./converted_jpg.pdf>]
 Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 []  [] 
  []
@@ -1522,15 +1548,6 @@ Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 [8
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 164.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 164.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
 Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 []  [] 
  []
@@ -1544,43 +1561,38 @@ Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 
 [10
 
-] <labeling_interface.png, id=81, 1927.2pt x 1084.05pt>
-File: labeling_interface.png Graphic file (type png)
-
-<use labeling_interface.png>
-Package pdftex.def Info: labeling_interface.png used on input line 182.
-(pdftex.def)             Requested size: 335.99568pt x 188.98378pt.
-
-Overfull \vbox (3.83484pt too high) detected at line 182
- []
-
-
+]
 Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 []  [] 
  []
 
 [11
 
- <./labeling_interface.png>]
+]
 Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 []  [] 
  []
 
 [12
 
-]
+] <labeling_interface.png, id=95, 1927.2pt x 1084.05pt>
+File: labeling_interface.png Graphic file (type png)
+
+<use labeling_interface.png>
+Package pdftex.def Info: labeling_interface.png used on input line 198.
+(pdftex.def)             Requested size: 335.99568pt x 188.98378pt.
+
+Overfull \vbox (3.83484pt too high) detected at line 198
+ []
+
+
 Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 []  [] 
  []
 
 [13
 
-]
-LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 217
-.
- (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
-File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-)
+ <./labeling_interface.png>]
 Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 []  [] 
  []
@@ -1595,6 +1607,11 @@ Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 [15
 
 ]
+LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 233
+.
+ (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
+File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+)
 Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 []  [] 
  []
@@ -1623,31 +1640,27 @@ Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 [19
 
 ]
-
-pdfTeX warning: pdflatex (file ./converted_jpg.pdf): PDF inclusion: found PDF v
-ersion <1.6>, but at most version <1.5> allowed
-<./converted_jpg.pdf, id=134, 1212.53pt x 855.195pt>
-File: ./converted_jpg.pdf Graphic file (type pdf)
- <use ./converted_jpg.pdf>
-Package pdftex.def Info: ./converted_jpg.pdf used on input line 261.
-(pdftex.def)             Requested size: 363.76181pt x 256.56049pt.
-
-Overfull \hbox (9.56645pt too wide) in paragraph at lines 261--261
-[][]  
- []
-
-
-Overfull \vbox (32.41154pt too high) detected at line 261
- []
-
-
 Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 []  [] 
  []
 
 [20
 
- <./converted_jpg.pdf>]
+]
+File: ./converted_jpg.pdf Graphic file (type pdf)
+ <use ./converted_jpg.pdf>
+Package pdftex.def Info: ./converted_jpg.pdf used on input line 274.
+(pdftex.def)             Requested size: 363.76181pt x 256.56049pt.
+
+Overfull \hbox (9.56645pt too wide) in paragraph at lines 274--274
+[][]  
+ []
+
+
+Overfull \vbox (32.41154pt too high) detected at line 274
+ []
+
+
 Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 []  [] 
  []
@@ -1669,6 +1682,13 @@ Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 [23
 
 ]
+Overfull \hbox (1.56543pt too wide) has occurred while \output is active
+[]  [] 
+ []
+
+[24
+
+]
 \tf@nav=\write6
 \openout6 = `report.nav'.
 
@@ -1678,11 +1698,11 @@ Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 \tf@snm=\write8
 \openout8 = `report.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 284.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 284.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 297.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 297.
  (work.dir/report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 284.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 284.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 297.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 297.
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
 
@@ -1690,13 +1710,13 @@ Package rerunfilecheck Info: File `report.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 284.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 297.
  ) 
 Here is how much of TeX's memory you used:
- 22550 strings out of 494399
- 397466 string characters out of 6172183
+ 22554 strings out of 494399
+ 397501 string characters out of 6172183
  464613 words of memory out of 5000000
- 25323 multiletter control sequences out of 15000+600000
+ 25325 multiletter control sequences out of 15000+600000
  15132 words of font info for 37 fonts, out of 8000000 for 9000
  452 hyphenation exceptions out of 8191
  49i,16n,57p,422b,616s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1709,10 +1729,10 @@ home/last/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/lass0600.600pk> </home/last/.tex
 mf-var/fonts/pk/ljfour/lh/lh-t2a/lass1440.600pk> </home/last/.texmf-var/fonts/p
 k/ljfour/lh/lh-t2a/lass2074.600pk></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmmi12.pfb>
-Output written on work.dir/report.pdf (23 pages, 535995 bytes).
+Output written on work.dir/report.pdf (24 pages, 543124 bytes).
 PDF statistics:
- 495 PDF objects out of 1000 (max. 8388607)
- 164 compressed objects within 2 object streams
- 47 named destinations out of 1000 (max. 500000)
+ 523 PDF objects out of 1000 (max. 8388607)
+ 169 compressed objects within 2 object streams
+ 49 named destinations out of 1000 (max. 500000)
  83 words of extra memory for PDF output out of 10000 (max. 10000000)
 
